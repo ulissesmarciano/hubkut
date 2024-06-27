@@ -1,12 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { Container } from './styles';
 
 import Button from '../../components/button';
 import HubKutIcon from '../../assets/icons/hubkut-icon.png';
+import LoginInput from '../../components/input';
 
 
 export default function LoginPage() {
+  const [username, setUsername] = useState('');
+
   return (
     <Container>
         <section className='login-section'>
@@ -15,8 +17,10 @@ export default function LoginPage() {
           </figure>
           <div>
             Usuário:
-            <input type='text' />
-            <Button />
+            <LoginInput 
+              onChange={(event) => setUsername(event.target.value)}
+            />
+            <Button to={`/home/${username}`}/>
           </div>
         </section>
     </Container>
