@@ -25,11 +25,12 @@ export const Container = styled.main`
 
     }
 
-    .login-section div {
+    .login-section .login-input-section {
         
         width: 100%;
         display: flex;
         align-items: center;
+        justify-content: space-between;
 
         background-color: yellow;
     }

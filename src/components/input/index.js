@@ -1,10 +1,17 @@
-import React from 'react'
-import { Container } from './styles'
+import React from 'react';
+import { Container } from './styles';
 
-export default function LoginInput({onChange}) {
+export default function LoginInput({ onChange, onKeyPress, value }) {
   return (
     <Container>
-        <input type='text' placeholder='Nome de usuário' onChange={onChange}/>
+      <input 
+        type='text'
+        placeholder=''
+        value={value}
+        onChange={onChange}
+        onKeyPress={onKeyPress}
+      />
+      <span className="custom-placeholder">Digite aqui</span>
     </Container>
-  )
+  );
 }
