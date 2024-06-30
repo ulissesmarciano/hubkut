@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container } from './styles';
 import { useNavigate } from 'react-router-dom';
+import api from '../../services/api'; 
 
 import Button from '../../components/button';
 import HubKutIcon from '../../assets/icons/hubkut-icon.png';
@@ -13,7 +14,7 @@ export default function LoginPage() {
 
   const handleChange = (e) => {
     setUsername(e.target.value);
-    setError(''); // Limpa o erro ao começar a digitar novamente
+    setError('');
   };
 
   const handleKeyPress = (e) => {
@@ -26,12 +27,22 @@ export default function LoginPage() {
     handleNavigation();
   };
 
-  const handleNavigation = () => {
+  const handleNavigation = async () => {
     if (username.trim() === '') {
       setError('Por favor, insira um nome de usuário.');
     } else {
-      setError('');
-      navigate(`/home/${username}`);
+      try {
+        const response = await api.get(`/${username}`)
+        if(response.status === 200) {
+          setError('');
+          navigate(`/home/${username}`);
+        } else {
+          setError(`Usuário "${username}" não encontrado.`)
+        }
+      } catch (error) {
+        console.error('Erro ao verificar usuário:', error);
+        setError('Erro ao verificar usuário. Por favor, tente novamente.')
+      }
     }
   };
 
@@ -47,8 +58,12 @@ export default function LoginPage() {
             onChange={handleChange}
             onKeyPress={handleKeyPress}
             value={username}
+            error={error} // Passa a prop error para o LoginInput
           />
-          <Button onClick={handleButtonClick}/>
+          {/* Use onClick para redirecionar */}
+          <Button onClick={handleButtonClick}>
+            Entrar
+          </Button>
         </div>
           {error && <p className='error-message'>{error}</p>}
       </section>

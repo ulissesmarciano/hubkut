@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './styles';
 
-export default function LoginInput({ onChange, onKeyPress, value }) {
+export default function LoginInput({ onChange, onKeyPress, value, error }) {
   return (
     <Container>
       <input 
@@ -11,7 +11,7 @@ export default function LoginInput({ onChange, onKeyPress, value }) {
         onChange={onChange}
         onKeyPress={onKeyPress}
       />
-      <span className="custom-placeholder">Digite aqui</span>
+      {!error && <span className="custom-placeholder">Digite aqui</span>}
     </Container>
   );
 }
