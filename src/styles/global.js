@@ -7,6 +7,10 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-family: Roboto;
         list-style: none;
-        text-decoration: none;
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
     }
 `
