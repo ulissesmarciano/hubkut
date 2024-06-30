@@ -23,10 +23,6 @@ export default function LoginPage() {
     }
   };
 
-  const handleButtonClick = () => {
-    handleNavigation();
-  };
-
   const handleNavigation = async () => {
     if (username.trim() === '') {
       setError('Por favor, insira um nome de usuário.');
@@ -46,27 +42,41 @@ export default function LoginPage() {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    handleNavigation();
+  };
+
   return (
     <Container>
-      <section className='login-section'>
+      <section className='login-container'>
         <figure>
           <img src={HubKutIcon} alt='imagem da logotipo Hubkut' />
         </figure>
-        <div className='login-input-section'>
-          Usuário:
-          <LoginInput 
-            onChange={handleChange}
-            onKeyPress={handleKeyPress}
-            value={username}
-            error={error} // Passa a prop error para o LoginInput
-          />
-          {/* Use onClick para redirecionar */}
-          <Button onClick={handleButtonClick}>
-            Entrar
-          </Button>
+        <div className='login-page-text'>
+          <p><span>Conecte-se</span> aos seus amigos e familiares usando recados e mensagens instantâneas</p>
+          <p><span>Conheça</span> novas pessoas através de amigos de seus amigos e comunidades</p>
+          <p><span>Compartilhe</span> seus repositórios, fotos e paixões em um só lugar</p>
         </div>
-          {error && <p className='error-message'>{error}</p>}
+        <section className='login-input-section'>
+          <form  onSubmit={handleSubmit}>
+            <label htmlFor="username">Usuário:</label>
+            <LoginInput 
+              id="username"
+              onChange={handleChange}
+              onKeyPress={handleKeyPress}
+              value={username}
+              error={error}
+            />
+            <Button type="submit">
+              Entrar
+            </Button>
+            {error && <p className='error-message'>{error}</p>}
+          </form>
+        </section>
+        
       </section>
     </Container>
   );
 }
+

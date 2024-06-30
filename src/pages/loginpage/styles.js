@@ -6,7 +6,7 @@ export const Container = styled.main`
 
     background-color: #d9e6f6;
 
-    .login-section {
+    .login-container {
         height: 100vh;
 
         display: flex;
@@ -17,24 +17,39 @@ export const Container = styled.main`
         background-color: #fff;
         border-radius: 2px;
 
+        @media(min-width: 769px){
+            height: 800px;
+        }
+
     }
 
-    .login-section figure{
+    .login-container figure{
         display: flex;
         justify-content: center;
     }
     
-    .login-section figure img {
+    .login-container figure img {
         width: 80%;
         margin-bottom: 3rem;
 
     }
 
-    .login-section .login-input-section {
-        
-        width: 100%;
+    .login-container .login-page-text {
+        display: none;
+    }
+
+    .login-container .login-input-section {
         display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .login-container .login-input-section form {
+        width: 100%;
         gap: .6rem;
+        position: relative;
+        
+        display: flex;
         align-items: center;
         justify-content: space-between;
 
@@ -45,10 +60,23 @@ export const Container = styled.main`
     }
 
     .error-message{
-        margin: 1rem;
+        width: 100%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        top: 150%;
+        left: 50%;
+        
         font-size: .8rem;
-
         color: #ff0000;
         font-weight: 500;
+        text-align: center;
+        
+    }
+
+    @media (min-width: 769px){
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     `
