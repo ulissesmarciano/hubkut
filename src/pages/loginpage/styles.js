@@ -18,10 +18,15 @@ export const Container = styled.main`
         border-radius: 2px;
 
     }
+
+    .login-section figure{
+        display: flex;
+        justify-content: center;
+    }
     
-    .login-section img {
-        width: 100%;
-        margin-bottom: 2rem;
+    .login-section figure img {
+        width: 80%;
+        margin-bottom: 3rem;
 
     }
 
@@ -29,9 +34,21 @@ export const Container = styled.main`
         
         width: 100%;
         display: flex;
+        gap: .6rem;
         align-items: center;
         justify-content: space-between;
 
-        background-color: yellow;
+        @media(min-width: 375px){
+            gap: 1rem;
+            max-width: 350px;
+        }
+    }
+
+    .error-message{
+        margin: 1rem;
+        font-size: .8rem;
+
+        color: #ff0000;
+        font-weight: 500;
     }
     `

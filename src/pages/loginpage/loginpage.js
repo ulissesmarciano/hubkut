@@ -8,17 +8,31 @@ import LoginInput from '../../components/input';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setUsername(e.target.value);
+    setError(''); // Limpa o erro ao começar a digitar novamente
+  };
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      // Redireciona para a página `/home/${username}`
-      navigate(`/home/${username}`);
+      handleNavigation();
     }
   };
 
-  const handleChange = (e) => {
-    setUsername(e.target.value); // Atualiza o estado `username` com o valor digitado
+  const handleButtonClick = () => {
+    handleNavigation();
+  };
+
+  const handleNavigation = () => {
+    if (username.trim() === '') {
+      setError('Por favor, insira um nome de usuário.');
+    } else {
+      setError('');
+      navigate(`/home/${username}`);
+    }
   };
 
   return (
@@ -34,8 +48,9 @@ export default function LoginPage() {
             onKeyPress={handleKeyPress}
             value={username}
           />
-          <Button to={`/home/${username}`}>Ir para Home</Button>
+          <Button onClick={handleButtonClick}/>
         </div>
+          {error && <p className='error-message'>{error}</p>}
       </section>
     </Container>
   );

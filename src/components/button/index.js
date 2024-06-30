@@ -1,13 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { Container } from './styles'
 
-export default function Button({to}) {
+export default function Button({onClick}) {
   return (
-    <Link to={to}>
-        <Container>
-            Entrar
-        </Container> 
-    </Link>
+    <Container onClick={onClick}>
+        Entrar
+    </Container> 
   )
 }
