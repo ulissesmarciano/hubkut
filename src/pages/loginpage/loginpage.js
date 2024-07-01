@@ -50,31 +50,40 @@ export default function LoginPage() {
   return (
     <Container>
       <section className='login-container'>
-        <figure>
-          <img src={HubKutIcon} alt='imagem da logotipo Hubkut' />
-        </figure>
-        <div className='login-page-text'>
-          <p><span>Conecte-se</span> aos seus amigos e familiares usando recados e mensagens instantâneas</p>
-          <p><span>Conheça</span> novas pessoas através de amigos de seus amigos e comunidades</p>
-          <p><span>Compartilhe</span> seus repositórios, fotos e paixões em um só lugar</p>
-        </div>
-        <section className='login-input-section'>
-          <form  onSubmit={handleSubmit}>
-            <label htmlFor="username">Usuário:</label>
-            <LoginInput 
-              id="username"
-              onChange={handleChange}
-              onKeyPress={handleKeyPress}
-              value={username}
-              error={error}
-            />
-            <Button type="submit">
-              Entrar
-            </Button>
+        <section className='login-info-container'>
+          <figure>
+            <img src={HubKutIcon} alt='imagem da logotipo Hubkut' />
+          </figure>
+          <div className='login-page-text'>
+            <p><span>Conecte-se</span> aos seus amigos e familiares usando recados e mensagens instantâneas</p>
+            <p><span>Conheça</span> novas pessoas através de amigos de seus amigos e comunidades</p>
+            <p><span>Compartilhe</span> seus repositórios, fotos e paixões em um só lugar</p>
+          </div>
+        </section>
+        <section className='login-singnin-section'>
+          <form className='login-section' onSubmit={handleSubmit}>
+              <span>Acesse o Hubkut com sua conta</span>
+            <div className='user-form-section'>
+              <label htmlFor="username"><p>Usuário:</p></label>
+              <div className='login-box'>
+                <LoginInput 
+                  id="username"
+                  onChange={handleChange}
+                  onKeyPress={handleKeyPress}
+                  value={username}
+                  error={error}
+                  className="login-input"
+                  />
+                <Button type="submit"/>
+              </div>
+            </div>
             {error && <p className='error-message'>{error}</p>}
           </form>
+          <section className='singnin-section'>
+            <p>Ainda não é membro?</p>
+            <a src="">CADASTRE-SE NO GITHUB</a>
+          </section>
         </section>
-        
       </section>
     </Container>
   );
