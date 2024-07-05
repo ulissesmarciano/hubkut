@@ -98,6 +98,7 @@ export const Container = styled.main`
             color: #2463e0;
             font-weight: bold;
             text-decoration: underline;
+            cursor: pointer;
     }
 
     @media (min-width: 769px){

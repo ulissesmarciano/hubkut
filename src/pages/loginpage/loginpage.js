@@ -81,7 +81,7 @@ export default function LoginPage() {
           </form>
           <section className='singnin-section'>
             <p>Ainda não é membro?</p>
-            <a src="">CADASTRE-SE NO GITHUB</a>
+            <a href='https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home' target='_blank' rel='noreferrer'>CADASTRE-SE NO GITHUB</a>
           </section>
         </section>
       </section>

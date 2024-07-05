@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom'
 
 export default function HomePage() {
   const {username} = useParams();
+  
 
   return (
     <div>
