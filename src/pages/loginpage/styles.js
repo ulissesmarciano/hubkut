@@ -3,8 +3,7 @@ import styled from "styled-components";
 export const Container = styled.main`
     height: 100vh;
     padding: 1rem;
-
-    background-color: #d9e6f6;
+  
 
     .login-container {
         height: 100vh;

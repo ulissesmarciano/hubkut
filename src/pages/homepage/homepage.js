@@ -1,12 +1,19 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { Container } from './styles';
+
+import Header from '../../components/header';
+import UserScreen from '../../components/user-screen';
 
 import useFetchUserData from '../../hooks/useFetchUserData';
 import useFetchFollowersData from '../../hooks/useFetchFollowersData';
 import useFetchFollowingData from '../../hooks/useFetchFollowingData';
 import useFetchReposData from '../../hooks/useFetchReposData';
 import useFetchStarredData from '../../hooks/useFetchStarredData';
-import Header from '../../components/header';
+import GreetingScreen from '../../components/greetings-screen';
+import ToDoScreen from '../../components/to-do-screen';
+import ReposScreen from '../../components/repos-screen';
+import FollowSection from '../../components/follow-section';
 
 const HomePage = () => {
   const {username} = useParams();
@@ -21,10 +28,25 @@ const HomePage = () => {
   // console.log(followingData);
   // console.log(reposData);
   // console.log(starredData);
+
   return (
     <div>
       <Header />
-        
+      <Container>
+        <aside className='user-section'>
+          <UserScreen />
+        </aside>
+        <section className='info-section'>
+          <GreetingScreen />
+          <ToDoScreen />
+          <ReposScreen />
+        </section>
+        <aside>
+          <section>
+            <FollowSection />
+          </section>
+        </aside>
+      </Container>
     </div>
   )
 }
