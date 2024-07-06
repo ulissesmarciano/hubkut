@@ -6,6 +6,7 @@ import useFetchFollowersData from '../../hooks/useFetchFollowersData';
 import useFetchFollowingData from '../../hooks/useFetchFollowingData';
 import useFetchReposData from '../../hooks/useFetchReposData';
 import useFetchStarredData from '../../hooks/useFetchStarredData';
+import Header from '../../components/header';
 
 const HomePage = () => {
   const {username} = useParams();
@@ -22,10 +23,8 @@ const HomePage = () => {
   // console.log(starredData);
   return (
     <div>
-        HomePage
-        <Link to='/'>Voltar</Link>
-
-        <p>{username}</p>
+      <Header />
+        
     </div>
   )
 }
