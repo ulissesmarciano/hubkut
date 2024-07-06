@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from './styles';
+import { Link } from 'react-router-dom';
 
 import HubkutLogo from '../../assets/icons/hubkut-icon.png';
 import SidebarHeaderButton from '../sidebar-header-button';
@@ -14,12 +15,15 @@ export default function Header() {
         </div>
         <nav className='menu-section'>
             <ul>
-                <li>início</li>
-                <li>Seguidores</li>
-                <li>Seguindo</li>
+                <li><Link>início</Link></li>
+                <li><Link>seguidores</Link></li>
+                <li><Link>seguindo</Link></li>
+            </ul>
+            <ul>
+                <li><Link>sair</Link></li>
             </ul>
         </nav>
-        <div className='sidebar-section.'>
+        <div className='sidebar-section'>
             <SidebarHeaderButton />
         </div>
     </Container>

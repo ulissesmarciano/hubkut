@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-    padding: .2rem .6rem;
+    padding: .4rem 6rem;
 
     display: flex;
     align-items: center;
@@ -14,7 +14,7 @@ export const Container = styled.header`
 
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
 
         background-color: #fff;
         border-radius: 50px;
@@ -26,6 +26,41 @@ export const Container = styled.header`
     }
 
     .menu-section {
+        margin-left: 8rem;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .menu-section ul{
+
+        gap: 4rem;
+        
+        display: flex;
+    }
+
+    .menu-section ul li a {
+        color: #fff;
+        text-transform: capitalize;
+    }
+
+    .sidebar-section {
         display: none;
+    }
+
+    @media (max-width:801px) {
+        padding: .2rem 2rem;
+
+        .menu-section ul {
+            display: none;
+        }
+
+        .sidebar-section {
+            display: block;
+        }
+    }
+
+    @media (max-width:480px) {
+        padding: .2rem .6rem;
     }
 `
