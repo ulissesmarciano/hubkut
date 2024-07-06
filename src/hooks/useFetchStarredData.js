@@ -8,14 +8,14 @@ const useFetchStarredData = (isUsername) => {
     const fetchStarredData = async () => {
         try {
             const response = await api.get(`/${isUsername}/starred`);
-            const repoStars = response;
+            const repoStars = response.data;
             setStarred(repoStars);
 
         } catch (error) {
             console.error('Error fetching user data:', error);
         }
-        fetchStarredData();
     }
+    fetchStarredData();
   }, [isUsername]);
   
   return starred;

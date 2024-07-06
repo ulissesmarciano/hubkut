@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react';
 import api from '../services/api';
 
-const useFetchFollowing = (isUsername) => {
-  const [following, setFollowing] = useState('');
+const useFetchFollowingData = (isUsername) => {
+  const [following, setFollowing] = useState([]);
     
   useEffect(() => {
     const fetchFollowingData = async () => {
@@ -14,11 +14,13 @@ const useFetchFollowing = (isUsername) => {
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
-      fetchFollowingData();
     }
+
+    fetchFollowingData();
+
   }, [isUsername])
 
     return following;
 }
 
-export default useFetchFollowing;
+export default useFetchFollowingData;

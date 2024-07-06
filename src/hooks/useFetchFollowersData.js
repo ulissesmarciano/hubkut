@@ -14,8 +14,9 @@ const useFetchFollowersData = (isUsername) => {
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
-      fetchFollowersData();
     }
+
+    fetchFollowersData();
   }, [isUsername])
 
     return followers;

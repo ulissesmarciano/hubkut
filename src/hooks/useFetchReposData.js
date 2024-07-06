@@ -15,8 +15,8 @@ const useFetchReposData = (isUsername) => {
         } catch (error) {
             console.error('Error fetching user data:', error);
         }
-        fetchReposData();
     }
+    fetchReposData();
   }, [isUsername]);
 
   return repos;
