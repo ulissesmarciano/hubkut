@@ -1,10 +1,13 @@
 import React from 'react'
 import { Link, useParams } from 'react-router-dom'
+import useFetchUserData from '../../hooks/useFetchUserData';
 
-export default function HomePage() {
+const HomePage = () => {
   const {username} = useParams();
+  const userData = useFetchUserData(username);
   
-
+  console.log(userData)
+  console.log(username);
   return (
     <div>
         HomePage
@@ -14,3 +17,5 @@ export default function HomePage() {
     </div>
   )
 }
+
+export default HomePage;
