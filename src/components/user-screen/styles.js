@@ -9,7 +9,7 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
 
-    border-radius: .8rem;
+    border-radius: .6rem;
 
 
     .user-profile-picture img {
