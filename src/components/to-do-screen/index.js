@@ -1,7 +1,10 @@
 import React from 'react'
+import { Container } from './styles'
 
 export default function ToDoScreen() {
   return (
-    <div>ToDoScreen</div>
+    <Container>
+      ToDoScreen
+    </Container>
   )
 }

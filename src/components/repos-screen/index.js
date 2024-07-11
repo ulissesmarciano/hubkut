@@ -1,7 +1,10 @@
 import React from 'react'
+import { Container } from './styles'
 
 export default function ReposScreen() {
   return (
-    <div>ReposScreen</div>
+    <Container>
+      ReposScreen
+    </Container>
   )
 }
