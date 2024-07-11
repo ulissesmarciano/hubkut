@@ -50,7 +50,7 @@ const HomePage = () => {
           <ToDoScreen />
           <ReposScreen />
         </section>
-        <aside>
+        <aside className='follow-section'>
           <section>
             <FollowSection />
           </section>

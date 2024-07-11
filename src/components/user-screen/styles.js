@@ -3,10 +3,11 @@ import styled from "styled-components";
 export const Container = styled.div`
     background-color: #fff;
     padding: 1rem;
-
+    
+    
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
 
     border-radius: .8rem;
 
@@ -36,15 +37,23 @@ export const Container = styled.div`
         margin-bottom: 1rem;
 
         display: flex;
-        align-items: end;
+        align-items: center;
+        
     }
 
     .info-list-section li img {
         width: 1.4rem;
-    
+        
     }
 
     .info-list-section li p {
         margin-left: 1rem;
+    }
+
+    .username-section h3, 
+    .info-list-section p {
+        word-wrap: break-word;
+        word-break: break-word;
+        max-width: 100%;
     }
 `
