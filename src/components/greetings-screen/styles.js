@@ -7,7 +7,7 @@ export const Container = styled.section`
     flex-direction: column;
 
     background-color: #fff;
-    border-radius: .6rem;
+    border-radius: .3rem;
 
     .greeting-name {
         margin-bottom: 1rem;
