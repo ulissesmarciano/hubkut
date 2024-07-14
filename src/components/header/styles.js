@@ -39,11 +39,6 @@ export const Container = styled.header`
         display: flex;
     }
 
-    .menu-section ul li a {
-        color: #fff;
-        text-transform: capitalize;
-    }
-
     .sidebar-section {
         display: none;
     }
