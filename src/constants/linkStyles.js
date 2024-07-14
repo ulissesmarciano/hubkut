@@ -20,12 +20,19 @@ export const linkStyles = {
     font-size: .9rem;
     `,
     
-  danger: css`
-    background-color: red;
-    color: white;
-    border: none;
+  seAllLink: css`
+
+    color: #308bc5;
+    font-weight: 700;
+
     &:hover {
-      background-color: darkred;
+      color: #888888;
     }
+  `,
+
+  headerLink: css`
+
+    color: #fff;
+    text-transform: capitalize;
   `,
 };
