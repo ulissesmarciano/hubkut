@@ -24,5 +24,9 @@ background-color: red;
     .follow-section {
         background-color: green;
         flex: 1;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
 `

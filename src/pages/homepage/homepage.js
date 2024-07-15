@@ -51,9 +51,8 @@ const HomePage = () => {
           <ReposScreen />
         </section>
         <aside className='follow-section'>
-          <section>
             <FollowSection />
-          </section>
+            <FollowSection />
         </aside>
       </Container>
     </div>
