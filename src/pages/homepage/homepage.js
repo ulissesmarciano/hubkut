@@ -50,7 +50,7 @@ const HomePage = () => {
             followersCount={userData.followers}
             followingCount={userData.following}
           />
-          <ToDoScreen />
+          <ToDoScreen username={username}/>
           <ReposScreen 
             repoItem={reposData.map((repo, index) => 
               <RepoItem 
