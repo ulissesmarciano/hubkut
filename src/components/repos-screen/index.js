@@ -1,19 +1,14 @@
 import React from 'react'
 import { Container } from './styles'
-import RepoItem from '../repoitem'
 import LinkItem from '../link'
 
-export default function ReposScreen() {
+export default function ReposScreen({repoItem}) {
   return (
     <Container>
       <h4>Meus últimos repositórios:</h4>
       <div>
         <ul className='repo-section'>
-          <RepoItem />
-          <RepoItem />
-          <RepoItem />
-          <RepoItem />
-          <RepoItem />
+          {repoItem}
         </ul>
         <LinkItem name="Ver todos" to="#" variant="seAllLink" />
       </div>

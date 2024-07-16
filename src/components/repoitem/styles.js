@@ -5,7 +5,6 @@ export const Container = styled.li`
     padding: 1rem;
     display: flex;
     flex-direction: column;
-margin: 2px;
 
     background-color: #d9e6f6;
 
@@ -20,6 +19,9 @@ export const RepoLink = styled(Link)`
     display: flex;
     align-items: center;
     gap: .4rem;
+
+    color: #308bc5;
+    font-weight: 700;
 
     .repo-icon {
         height: 18px;

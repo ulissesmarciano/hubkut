@@ -3,7 +3,7 @@ import api from "../services/api";
 
 
 const useFetchReposData = (isUsername) => {
-  const [repos, setRepos] = useState('');
+  const [repos, setRepos] = useState([]);
 
   useEffect(() => {
     const fetchReposData = async () => {

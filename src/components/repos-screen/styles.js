@@ -12,6 +12,10 @@ export const Container = styled.section`
 
     .repo-section {
         margin-bottom: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: .1rem;
         
         :first-child{
             border-radius: 10px 10px 0 0;

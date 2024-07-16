@@ -15,13 +15,14 @@ import ToDoScreen from '../../components/to-do-screen';
 import ReposScreen from '../../components/repos-screen';
 import FollowSection from '../../components/follow-section';
 import FollowUser from '../../components/follow-user';
+import RepoItem from '../../components/repoitem';
 
 const HomePage = () => {
   const {username} = useParams();
   const userData = useFetchUserData(username);
   const followingData = useFetchFollowingData(username);
   const followersData = useFetchFollowersData(username);
-  // const reposData = useFetchReposData(username);
+  const reposData = useFetchReposData(username);
   const starredData = useFetchStarredData(username);
   
   // console.log(reposData);
@@ -53,7 +54,15 @@ const HomePage = () => {
             followingCount={userData.following}
           />
           <ToDoScreen />
-          <ReposScreen />
+          <ReposScreen 
+            repoItem={reposData.map((repo, index) => 
+              <RepoItem 
+                key={index}
+                repoName={repo.name}
+                repoUrl={repo.full_name}
+              />
+            ).slice(0, 5)}
+          />
         </section>
         <aside className='follow-section'>
           <FollowSection
@@ -74,7 +83,7 @@ const HomePage = () => {
                   key={index} 
                   imageurl={user.avatar_url}
                 />
-              ))}
+              ).slice(0, 6))}
           />
         </aside>
       </Container>
