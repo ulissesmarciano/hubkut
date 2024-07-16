@@ -22,10 +22,10 @@ const HomePage = () => {
   const followingData = useFetchFollowingData(username);
   const followersData = useFetchFollowersData(username);
   // const reposData = useFetchReposData(username);
-  // const starredData = useFetchStarredData(username);
+  const starredData = useFetchStarredData(username);
   
   // console.log(reposData);
-  // console.log(starredData);
+  console.log(starredData);
 
   return (
     <div>
@@ -44,7 +44,14 @@ const HomePage = () => {
           />
         </aside>
         <section className='info-section'>
-          <GreetingScreen />
+          <GreetingScreen
+            name={userData.name} 
+            bio={userData.bio}
+            repoCount={userData.public_repos}
+            starredCount={starredData.length}
+            followersCount={userData.followers}
+            followingCount={userData.following}
+          />
           <ToDoScreen />
           <ReposScreen />
         </section>

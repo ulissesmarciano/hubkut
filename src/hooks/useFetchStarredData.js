@@ -2,7 +2,7 @@ import {useEffect, useState } from 'react';
 import api from '../services/api';
 
 const useFetchStarredData = (isUsername) => {
-  const [starred, setStarred] = useState('');
+  const [starred, setStarred] = useState([]);
 
   useEffect(() => {
     const fetchStarredData = async () => {
