@@ -8,7 +8,7 @@ export const UserLink = styled(Link)`
 
     background: 
         linear-gradient(transparent, #00000060),
-        url(${(props) => props.imageUrl});
+        url(${(props) => props.imageurl});
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100px;

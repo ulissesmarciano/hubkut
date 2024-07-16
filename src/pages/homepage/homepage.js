@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Container } from './styles';
 
 import Header from '../../components/header';
@@ -14,18 +14,16 @@ import GreetingScreen from '../../components/greetings-screen';
 import ToDoScreen from '../../components/to-do-screen';
 import ReposScreen from '../../components/repos-screen';
 import FollowSection from '../../components/follow-section';
+import FollowUser from '../../components/follow-user';
 
 const HomePage = () => {
   const {username} = useParams();
   const userData = useFetchUserData(username);
-  // const followersData = useFetchFollowersData(username);
-  // const followingData = useFetchFollowingData(username);
+  const followingData = useFetchFollowingData(username);
+  const followersData = useFetchFollowersData(username);
   // const reposData = useFetchReposData(username);
   // const starredData = useFetchStarredData(username);
   
-  console.log(userData);
-  // console.log(followersData);
-  // console.log(followingData);
   // console.log(reposData);
   // console.log(starredData);
 
@@ -51,8 +49,26 @@ const HomePage = () => {
           <ReposScreen />
         </section>
         <aside className='follow-section'>
-            <FollowSection />
-            <FollowSection />
+          <FollowSection
+              typeName="seguindo"
+              count={userData.following}
+              followUser={(followingData.map((user, index) =>
+                <FollowUser
+                  key={index} 
+                  imageurl={user.avatar_url}
+                />
+              ).slice(0, 6))}
+          />
+          <FollowSection
+              typeName="seguidores"
+              count={userData.followers}
+              followUser={(followersData.map((user, index) =>
+                <FollowUser
+                  key={index} 
+                  imageurl={user.avatar_url}
+                />
+              ))}
+          />
         </aside>
       </Container>
     </div>

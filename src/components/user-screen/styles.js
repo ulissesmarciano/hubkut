@@ -15,7 +15,7 @@ export const Container = styled.div`
     .user-profile-picture img {
 
         height: 12rem;
-        width: 100%;
+        width: 12rem ;
 
         border-radius: 50rem;
     }

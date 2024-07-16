@@ -14,9 +14,11 @@ export const Container = styled.section`
     .section-name {
         font-weight: 800;
         font-size: 1.2rem;
+        text-transform: capitalize;
     }
 
     .section-name span {
+        margin: .2rem;
         color: #3096d3;
     }
     

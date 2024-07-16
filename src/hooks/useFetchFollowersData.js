@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import api from '../services/api';
 
 const useFetchFollowersData = (isUsername) => {
-  const [followers, setFollowers] = useState('');
+  const [followers, setFollowers] = useState([]);
     
   useEffect(() => {
     const fetchFollowersData = async () => {
