@@ -1,14 +1,13 @@
 import React from 'react';
 import { Container } from './styles';
+import { Link } from 'react-router-dom';
 
 import EmployEmoji from '../../assets/icons/company-icon.png';
 import PinIcon from '../../assets/icons/pin-icon.png';
 import MailIcon from '../../assets/icons/mail-icon.png';
 import LinkIcon from '../../assets/icons/link-icon.png';
-import TwitterIcon from '../../assets/icons/twitter-icon.png';
+import XIcon from '../../assets/icons/x_icon.svg';
 
-
-const ProfilePicture = 'https://avatars.githubusercontent.com/u/104742158?s=400&u=b793765b9ab0c8f5bec5e2c7580678cac6bce511&v=4';
 
 export default function UserScreen({
   src,
@@ -19,7 +18,9 @@ export default function UserScreen({
   city,
   email,
   portfolio,
-  xTwitter
+  portfolioHref,
+  xUsername,
+  xHref
 }) {
   return (
     <Container>
@@ -47,11 +48,11 @@ export default function UserScreen({
           </li>
           <li>
             <img src={LinkIcon} alt='ícone link'/>
-            <p>{portfolio}</p>
+            <Link to={`https://${portfolioHref}`} target='_blank'><p>{portfolio}</p></Link>
           </li>
           <li>
-            <img src={TwitterIcon} alt='ícone twitter'/>
-            <p>{xTwitter}</p>
+            <img src={XIcon} alt='ícone twitter'/>
+            <Link to={`https://x.com/${xHref}`} target='_blank'><p>{xUsername}</p></Link>
           </li>
         </ul>
         <span />

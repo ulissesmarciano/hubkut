@@ -38,7 +38,9 @@ const HomePage = () => {
             city={userData.location}
             email={userData.email}
             portfolio={userData.blog}
-            xTwitter={userData.twitter_username}
+            portfolioHref={userData.blog}
+            xUsername={userData.twitter_username}
+            xHref={userData.twitter_username}
           />
         </aside>
         <section className='info-section'>
