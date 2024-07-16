@@ -3,10 +3,10 @@ import { Container, RepoLink } from './styles';
 
 import RepoIcon from '../../assets/icons/repositories-icon.png'
 
-export default function RepoItem({repoUrl, repoName}) {
+export default function RepoItem({repoUrl, repoName, to}) {
   return (
     <Container>
-        <RepoLink>
+        <RepoLink to={to} target='_blank'>
             <img className='repo-icon' src={RepoIcon} alt='icone do repositório' />
             <p className='repo-url'>{repoUrl}</p>
         </RepoLink>

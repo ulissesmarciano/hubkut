@@ -25,9 +25,6 @@ const HomePage = () => {
   const reposData = useFetchReposData(username);
   const starredData = useFetchStarredData(username);
   
-  // console.log(reposData);
-  console.log(starredData);
-
   return (
     <div>
       <Header />
@@ -60,6 +57,7 @@ const HomePage = () => {
                 key={index}
                 repoName={repo.name}
                 repoUrl={repo.full_name}
+                to={repo.svn_url}
               />
             ).slice(0, 5)}
           />
