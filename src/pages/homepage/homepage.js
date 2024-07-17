@@ -55,7 +55,10 @@ const HomePage = () => {
             starredCount={starredData.length}
             followersCount={userData.followers}
             followingCount={userData.following}
-            
+            reposHref={username}
+            followersHref={username}
+            followingHref={username}
+            starredHref={username}
           />
           <ToDoScreen username={username}/>
           <ReposScreen 
