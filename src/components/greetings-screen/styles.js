@@ -58,5 +58,10 @@ export const Container = styled.section`
         font-style: italic;
     }
 
-    
+    @media(max-width: 375px){
+        .stats-info {
+            gap: .6rem;
+            justify-content: center;
+        }
+    }    
 `

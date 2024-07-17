@@ -11,7 +11,7 @@ export const Container = styled.main`
     }
 
     .info-section {
-
+        width: 100%;
         display: flex;
         flex-direction: column;
         flex: 4;
@@ -24,5 +24,24 @@ export const Container = styled.main`
         display: flex;
         flex-direction: column;
         gap: 1rem;
+    }
+
+    @media(max-width: 1024px){
+        .follow-section {
+            display: none;
+        }
+    }
+
+    @media(max-width: 768px){
+
+        padding: 2rem;
+
+        .user-section {
+            display: none;
+        }
+    }
+
+    @media(max-width: 480px){
+        padding: 1rem;
     }
 `

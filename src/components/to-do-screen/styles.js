@@ -14,4 +14,18 @@ export const Container = styled.section`
         display: flex;
         gap: 1rem;
     }
+
+    @media (max-width: 543px){
+        .link-container {
+            overflow-x: scroll;
+            overflow-y: hidden;
+            white-space: nowrap;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    }
 `
