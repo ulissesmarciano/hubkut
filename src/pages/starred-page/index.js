@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function StarredScreen() {
+export default function StarredPage() {
   return (
     <div>
         StarredScreen
