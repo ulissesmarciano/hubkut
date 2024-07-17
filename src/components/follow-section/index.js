@@ -9,7 +9,7 @@ export default function FollowSection({typeName, count, followUser, to}) {
       <ul className='follow-section'>
         {followUser}
       </ul>
-      <LinkItem name="Ver mais" to={to}variant="seAllLink" />
+      <LinkItem name="Ver mais" to={to} variant="seAllLink" />
     </Container>
   )
 }

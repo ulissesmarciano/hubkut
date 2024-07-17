@@ -8,7 +8,18 @@ import FollowersIcon from '../../assets/icons/user-icon.png';
 import FollowingIcon from '../../assets/icons/following-icon.png';
 
 
-export default function GreetingScreen({name, bio, repoCount, starredCount, followersCount, followingCount}) {
+export default function GreetingScreen({
+  name, 
+  bio, 
+  repoCount, 
+  starredCount, 
+  followersCount, 
+  followingCount,
+  reposHref,
+  starredHref,
+  followersHref,
+  followingHref
+}) {
   return (
     <Container>
       <h2 className='greeting-name'>Bem vindo(a), {name}</h2>
@@ -16,28 +27,28 @@ export default function GreetingScreen({name, bio, repoCount, starredCount, foll
       <ul className='stats-info'>
         <li className='item'>
           <p className='name'>Repositórios</p>
-          <Link className='link' to={'#'}>
+          <Link className='link' to={reposHref}>
               <img src={RepositoriesIcon} alt='icone repositórios' />
               <p>{repoCount}</p>
           </Link>
         </li>
         <li className='item'>
           <p className='name'>Favoritos</p>
-          <Link className='link' to={'#'}>
+          <Link className='link' to={starredHref}>
               <img src={FavoritesIcon} alt='icone repositórios' />
               <p>{starredCount}</p>
           </Link>
         </li>
         <li className='item'>
           <p className='name'>Seguidores</p>
-          <Link className='link' to={'#'}>
+          <Link className='link' to={followersHref}>
               <img src={FollowersIcon} alt='icone repositórios' />
               <p>{followersCount}</p>
           </Link>
         </li>
         <li className='item'>
           <p className='name'>Seguindo</p>
-          <Link className='link' to={'#'}>
+          <Link className='link' to={followingHref}>
               <img src={FollowingIcon} alt='icone repositórios' />
               <p>{followingCount}</p>
           </Link>

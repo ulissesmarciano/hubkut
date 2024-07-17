@@ -55,6 +55,7 @@ const HomePage = () => {
             starredCount={starredData.length}
             followersCount={userData.followers}
             followingCount={userData.following}
+            
           />
           <ToDoScreen username={username}/>
           <ReposScreen 
@@ -72,6 +73,7 @@ const HomePage = () => {
           <FollowSection
               typeName="seguindo"
               count={userData.following}
+              to={`/following/${username}`}
               followUser={(followingData.map((user, index) =>
                 <FollowUser
                   key={index} 
@@ -88,6 +90,7 @@ const HomePage = () => {
                   imageurl={user.avatar_url}
                 />
               ).slice(0, 6))}
+              to={`/followers/${username}`}
           />
         </aside>
       </Container>
