@@ -5,7 +5,7 @@ import HubkutLogo from '../../assets/icons/hubkut-icon.png';
 import SidebarHeaderButton from '../sidebar-header-button';
 import LinkItem from '../link';
 
-export default function Header() {
+export default function Header({homepageLinkHref, followersLinkHref, followingLinkHref}) {
   return (
     <Container>
         <div className='logo-section'>
@@ -16,18 +16,18 @@ export default function Header() {
         <nav className='menu-section'>
             <ul>
                 <li>
-                    <LinkItem name="Inicio" to="#" variant="headerLink" />
+                    <LinkItem name="Inicio" to={`/home/${homepageLinkHref}`} variant="headerLink" />
                 </li>
                 <li>
-                    <LinkItem name="Seguidores" to="#" variant="headerLink" />
+                    <LinkItem name="Seguidores" to={`/followers/${followersLinkHref}`} variant="headerLink" />
                 </li>
                 <li>
-                    <LinkItem name="Seguindo" to="#" variant="headerLink" />
+                    <LinkItem name="Seguindo" to={`/following/${followingLinkHref}`} variant="headerLink" />
                 </li>
             </ul>
             <ul>
                 <li>
-                    <LinkItem name="Sair" to="#" variant="headerLink" />
+                    <LinkItem name="Sair" to="/" variant="headerLink" />
                 </li>
             </ul>
         </nav>
