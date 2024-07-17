@@ -27,7 +27,11 @@ const HomePage = () => {
   
   return (
     <div>
-      <Header />
+      <Header 
+        homepageLinkHref={username}
+        followersLinkHref={username}
+        followingLinkHref={username}
+      />
       <Container>
         <aside className='user-section'>
           <UserScreen
