@@ -2,8 +2,8 @@ import React from 'react';
 import { Container } from './styles';
 
 import HubkutLogo from '../../assets/icons/hubkut-icon.png';
-import SidebarHeaderButton from '../sidebar-header-button';
 import LinkItem from '../link';
+import HeaderSidebarButton from '../header-sidebar-button';
 
 export default function Header({homepageLinkHref, followersLinkHref, followingLinkHref}) {
   return (
@@ -32,7 +32,7 @@ export default function Header({homepageLinkHref, followersLinkHref, followingLi
             </ul>
         </nav>
         <div className='sidebar-section'>
-            <SidebarHeaderButton />
+            <HeaderSidebarButton />
         </div>
     </Container>
   )

@@ -74,7 +74,7 @@ export default function LoginPage() {
                   error={error}
                   className="login-input"
                   />
-                <Button type="submit" variant="primary"/>
+                <Button type="submit" variant="loginButton"/>
               </div>
             </div>
             {error && <p className='error-message'>{error}</p>}
