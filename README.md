@@ -26,10 +26,11 @@ Hubkut combina o design nostálgico do Orkut com funcionalidades da API do GitHu
 - CSS
 - JS
 
-- React Router Dom
-- Styled Components
-- Axios
-- dotenv (Oculta;ãao do token no projeto.)
+- React Router Dom (para criação de rotas na aplicação)
+- Styled Components (criação de componentes estilizados)
+- Axios (para requisição da api)
+- React Icons (utilização da biblioteca para renderizar icones)
+- dotenv (ocultação do token no projeto)
 
 ## 🚀 Como Utilizar
 
