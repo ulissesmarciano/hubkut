@@ -1,11 +1,10 @@
 import React from 'react';
-import { Container, Icon } from './styles';
+import { Container, TfiMenuIcon, TfiCloseIcon } from './styles';
 
-
-export default function HeaderSidebarButton() {
+export default function HeaderSidebarButton({ onClick, variant }) {
   return (
-    <Container>
-        <Icon />
+    <Container onClick={onClick}>
+      {variant === 'closeStyle' ? <TfiCloseIcon /> : <TfiMenuIcon />}
     </Container>
-  )
+  );
 }
