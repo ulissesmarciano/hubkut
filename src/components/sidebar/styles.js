@@ -5,6 +5,9 @@ export const Container = styled.section`
     height: 100vh;
     width: 100%;
 
+    display: flex;
+    flex-direction: column;
+
     position: absolute;
     top: 0;
     right: 0;
@@ -27,7 +30,7 @@ export const Container = styled.section`
         display: flex;
         justify-content: end;
 
-        animation: fadeIn 1s ease-in-out;
+        animation: fadeIn 1s ease-in;
 
         @keyframes fadeIn {
             from { 
@@ -40,7 +43,24 @@ export const Container = styled.section`
             
         }
 
-        @media (max-width: 480px) {
+    }
+
+    .menu-section{
+        margin: 0;
+        height: 80%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+
+        background-color: red;
+
+    }
+
+     
+    @media (max-width: 480px) {
+        .close-sidebar-section {
             padding-right: .6rem;
         }
     }
