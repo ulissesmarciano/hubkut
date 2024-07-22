@@ -80,7 +80,9 @@ const HomePage = () => {
               followUser={(followingData.map((user, index) =>
                 <FollowUser
                   key={index} 
-                  imageurl={user.avatar_url}
+                  imageUrl={user.avatar_url}
+                  usernameIn={user.login}
+                  variant="secondary"
                 />
               ).slice(0, 6))}
           />
@@ -90,7 +92,9 @@ const HomePage = () => {
               followUser={(followersData.map((user, index) =>
                 <FollowUser
                   key={index} 
-                  imageurl={user.avatar_url}
+                  imageUrl={user.avatar_url}
+                  usernameIn={user.login}
+                  variant="secondary"
                 />
               ).slice(0, 6))}
               to={`/followers/${username}`}
