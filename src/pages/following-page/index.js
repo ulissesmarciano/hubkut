@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function FollowingScreen() {
+export default function FollowingPage() {
   return (
     <div>
         FollowingScreen
