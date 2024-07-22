@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { followUserStyles } from "../../constants/followUserStyles";
 
+export const Container = styled.li`
+    ${({variant}) => followUserStyles[variant] || followUserStyles.primary}
+    
+    
+    `
 
 export const UserLink = styled(Link)`
     width: 80px;
@@ -19,7 +25,7 @@ export const UserLink = styled(Link)`
     align-items: flex-end;
     border-radius: 6px;
 
-    .username {
+    .username-in {
         word-wrap: break-word;
         word-break: break-word;
         max-width: 100%;
@@ -29,4 +35,6 @@ export const UserLink = styled(Link)`
         font-size: .8rem;
         font-weight: 600;
     }
+
+    
 `
