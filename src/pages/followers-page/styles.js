@@ -16,4 +16,26 @@ export const Container = styled.main`
         gap: .4rem;
         
     }
+
+    @media(max-width: 1440px){
+        .followers-section {
+            margin: 1rem 6rem;
+        }
+    }
+
+    @media(max-width: 768px){
+        .followers-section {
+            margin: 1rem 2rem;
+        }
+
+        .followers-section .list {
+            grid-template-columns: 1fr;
+        }
+
+        .followers-section .list li{
+            word-wrap: break-word;
+            word-break: break-word;
+            max-width: 100%;
+        }
+    }
 `
