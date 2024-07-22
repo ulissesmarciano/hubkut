@@ -9,6 +9,7 @@ export const Container = styled.div`
         width: 100%;
         height: 1.9rem;
         font-size: 16px;
+        padding-left: .4rem;
     }
 
     .custom-placeholder {
