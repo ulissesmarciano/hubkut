@@ -2,11 +2,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import LoginPage from './pages/loginpage/loginpage';
 import HomePage from './pages/homepage/homepage';
-import FollowingPage from './pages/following-page';
-import FollowersPage from './pages/followers-page';
-import ReposPage from './pages/repos-page';
-import StarredPage from './pages/starred-page';
-import PerfilPage from './pages/perfil-page';
+import FollowingPage from './pages/following-page/followers-page';
+import FollowersPage from './pages/followers-page/followers-page';
+import ReposPage from './pages/repos-page/repos-page';
+import StarredPage from './pages/starred-page/starred-page';
+import PerfilPage from './pages/perfil-page/perfil-page';
 
 function App() {
   return (
