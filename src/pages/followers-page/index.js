@@ -27,6 +27,7 @@ export default function FollowersPage() {
               usernameOut={user.login}
               imageUrl={user.avatar_url}
               variant="primary"
+              to={user.login}
             />
           )}
         </ul>

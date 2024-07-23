@@ -6,6 +6,7 @@ import FollowingPage from './pages/following-page';
 import FollowersPage from './pages/followers-page';
 import ReposPage from './pages/repos-page';
 import StarredPage from './pages/starred-page';
+import PerfilPage from './pages/perfil-page';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/followers/:username" element={<FollowersPage/>} />
           <Route path="/repos/:username" element={<ReposPage />} />
           <Route path="/starred/:username" element={<StarredPage />} />
+          <Route path="/perfil/:username" element={<PerfilPage />} />
       </Routes>
     </Router>
   );
