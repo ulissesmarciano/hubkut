@@ -11,10 +11,36 @@ export default function Sidebar({ active, homepageLinkHref, followingLinkHref, f
             <HeaderSidebarButton onClick={closeSidebar} variant="closeStyle"/>
         </div>
         <section className='menu-section'>
-            <p>Início</p>
-            <p>Seguidores</p>
-            <p>Seguindo</p>
-            <p>Sair</p>
+            <ul className='list'>
+              <li>
+                <LinkItem 
+                  name="Início"
+                  to={`/home/${homepageLinkHref}`}
+                  variant="headerLink"
+                />
+              </li>
+              <li>
+                <LinkItem 
+                  name="Seguidores"
+                  to={`/followers/${followersLinkHref}`}
+                  variant="headerLink"
+                />
+              </li>
+              <li>
+                <LinkItem 
+                  name="Seguindo"
+                  to={`/following/${followingLinkHref}`}
+                  variant="headerLink"
+                />
+              </li>
+              <li>
+                <LinkItem 
+                  name="Sair"
+                  to="/"
+                  variant="headerLink"
+                />
+              </li>
+            </ul>
         </section>
     </Container>
   )

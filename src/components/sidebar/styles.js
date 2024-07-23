@@ -50,11 +50,20 @@ export const Container = styled.section`
         height: 80%;
 
         display: flex;
+        justify-content: center;
+                
+    }
+    
+    .menu-section .list {
+
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-evenly;
+    }
 
-        background-color: red;
+    .menu-section .list li {
+        font-size: 1.6rem;
 
     }
 
