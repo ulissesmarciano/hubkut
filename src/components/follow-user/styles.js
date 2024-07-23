@@ -2,17 +2,17 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { followUserStyles } from "../../constants/followUserStyles";
 
-export const Container = styled.li`
+export const Container = styled(Link)`
   ${({ $variant }) => followUserStyles[$variant] || followUserStyles.primary}
 `
 
-export const UserLink = styled(Link)`
+export const UserSection= styled.div`
   width: 80px;
   height: 100px;
 
   background: 
     linear-gradient(transparent, #00000060),
-    url(${(props) => props.imageurl});
+    url(${(props) => props.$imageurl});
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100px;

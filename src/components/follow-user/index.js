@@ -1,12 +1,12 @@
 import React from 'react'
-import { Container, UserLink } from './styles'
+import { Container, UserSection } from './styles'
 
 export default function FollowUser({ imageUrl, usernameIn, usernameOut, variant }) {
   return (
     <Container $variant={variant}>
-      <UserLink to="#" imageurl={imageUrl}>
+      <UserSection $imageurl={imageUrl}>
         <p className='username-in'>{usernameIn}</p>
-      </UserLink>
+      </UserSection>
       <p className='username-out'>{usernameOut}</p>
     </Container>
   )
