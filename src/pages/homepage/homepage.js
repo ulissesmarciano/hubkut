@@ -1,10 +1,8 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from './styles';
-
 import Header from '../../components/header';
 import UserScreen from '../../components/user-screen';
-
 import useFetchUserData from '../../hooks/useFetchUserData';
 import useFetchFollowersData from '../../hooks/useFetchFollowersData';
 import useFetchFollowingData from '../../hooks/useFetchFollowingData';
@@ -16,15 +14,20 @@ import ReposScreen from '../../components/repos-screen';
 import FollowSection from '../../components/follow-section';
 import FollowUser from '../../components/follow-user';
 import RepoItem from '../../components/repoitem';
+import { useUser } from '../../context/UserContext';
 
-const HomePage = () => {
-  const {username} = useParams();
+export default function HomePage() {
+  const { username: urlUsername } = useParams();
+  const { username: contextUsername } = useUser();
+  const storedUsername = localStorage.getItem('username');
+  const username = urlUsername || contextUsername || storedUsername; // Priorizar o parâmetro da URL, depois o contexto, e finalmente o localStorage
+
   const userData = useFetchUserData(username);
   const followingData = useFetchFollowingData(username);
   const followersData = useFetchFollowersData(username);
   const reposData = useFetchReposData(username);
   const starredData = useFetchStarredData(username);
-  
+
   return (
     <div>
       <Header 
@@ -49,7 +52,7 @@ const HomePage = () => {
         </aside>
         <section className='info-section'>
           <GreetingScreen
-            name={userData.name} 
+            name={userData.name}
             bio={userData.bio}
             repoCount={userData.public_repos}
             starredCount={starredData.length}
@@ -72,37 +75,40 @@ const HomePage = () => {
             ).slice(0, 5)}
           />
         </section>
-        <aside className='follow-section'>
-          <FollowSection
-              typeName="seguindo"
-              count={userData.following}
-              to={`/following/${username}`}
-              followUser={(followingData.map((user, index) =>
-                <FollowUser
-                  key={index} 
-                  imageUrl={user.avatar_url}
-                  usernameIn={user.login}
-                  variant="secondary"
-                />
-              ).slice(0, 6))}
-          />
-          <FollowSection
-              typeName="seguidores"
-              count={userData.followers}
-              followUser={(followersData.map((user, index) =>
-                <FollowUser
-                  key={index} 
-                  imageUrl={user.avatar_url}
-                  usernameIn={user.login}
-                  variant="secondary"
-                />
-              ).slice(0, 6))}
-              to={`/followers/${username}`}
-          />
+        <aside className='follow-side'>
+          <section>
+            <FollowSection
+                typeName="seguindo"
+                count={userData.following}
+                to={`/following/${username}`}
+                followUser={(followingData.map((user, index) =>
+                  <FollowUser
+                    key={index} 
+                    imageUrl={user.avatar_url}
+                    usernameIn={user.login}
+                    variant="secondary"
+                    to={user.login}
+                  />
+                ).slice(0, 6))}
+            />
+          </section>
+          <section>
+            <FollowSection
+                typeName="seguidores"
+                count={userData.followers}
+                followUser={(followersData.map((user, index) =>
+                  <FollowUser
+                    key={index} 
+                    imageUrl={user.avatar_url}
+                    usernameIn={user.login}
+                    variant="secondary"
+                  />
+                ).slice(0, 6))}
+                to={`/followers/${username}`}
+            />
+          </section>
         </aside>
       </Container>
     </div>
-  )
+  );
 }
-
-export default HomePage;

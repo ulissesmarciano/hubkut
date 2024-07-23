@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { UserProvider } from './context/UserContext';
 
 import LoginPage from './pages/loginpage/loginpage';
 import HomePage from './pages/homepage/homepage';
@@ -10,17 +11,19 @@ import PerfilPage from './pages/perfil-page/perfil-page';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-          <Route path="/" element={<LoginPage/>} />
-          <Route path="/home/:username" element={<HomePage />}/>
-          <Route path="/following/:username" element={<FollowingPage />} />
-          <Route path="/followers/:username" element={<FollowersPage/>} />
-          <Route path="/repos/:username" element={<ReposPage />} />
-          <Route path="/starred/:username" element={<StarredPage />} />
-          <Route path="/perfil/:username" element={<PerfilPage />} />
-      </Routes>
-    </Router>
+    <UserProvider>
+      <Router>
+        <Routes>
+            <Route path="/" element={<LoginPage/>} />
+            <Route path="/home/:username" element={<HomePage />}/>
+            <Route path="/following/:username" element={<FollowingPage />} />
+            <Route path="/followers/:username" element={<FollowersPage/>} />
+            <Route path="/repos/:username" element={<ReposPage />} />
+            <Route path="/starred/:username" element={<StarredPage />} />
+            <Route path="/perfil/:username" element={<PerfilPage />} />
+        </Routes>
+      </Router>
+    </UserProvider>
   );
 }
 

@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import { Container } from './styles';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api'; 
-
 import Button from '../../components/button';
 import HubKutIcon from '../../assets/icons/hubkut-icon.png';
 import LoginInput from '../../components/input';
+import { Container } from './styles';
+import { useUser } from '../../context/UserContext';
 
 export default function LoginPage() {
-  const [username, setUsername] = useState('');
+  const { setUsername } = useUser();
+  const [username, setUsernameLocal] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setUsername(e.target.value);
+    setUsernameLocal(e.target.value);
     setError('');
   };
 
@@ -28,16 +29,18 @@ export default function LoginPage() {
       setError('Por favor, insira um nome de usuário.');
     } else {
       try {
-        const response = await api.get(`/${username}`)
-        if(response.status === 200) {
+        const response = await api.get(`/${username}`);
+        if (response.status === 200) {
           setError('');
+          setUsername(username); // Atualizar o contexto
+          localStorage.setItem('username', username); // Salvar no localStorage
           navigate(`/home/${username}`);
         } else {
-          setError(`Usuário "${username}" não encontrado.`)
+          setError(`Usuário "${username}" não encontrado.`);
         }
       } catch (error) {
         console.error('Erro ao verificar usuário:', error);
-        setError('Erro ao verificar usuário. Por favor, tente novamente.')
+        setError('Erro ao verificar usuário. Por favor, tente novamente.');
       }
     }
   };
@@ -73,7 +76,7 @@ export default function LoginPage() {
                   value={username}
                   error={error}
                   className="login-input"
-                  />
+                />
                 <Button type="submit" variant="loginButton"/>
               </div>
             </div>
@@ -88,4 +91,3 @@ export default function LoginPage() {
     </Container>
   );
 }
-

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container } from './styles';
+import { useUser } from '../../context/UserContext';
 
 import HeaderSidebarButton from '../header-sidebar-button';
 
@@ -7,8 +8,9 @@ import HubkutLogo from '../../assets/icons/hubkut-icon.png';
 import LinkItem from '../link';
 import Sidebar from '../sidebar';
 
-export default function Header({ homepageLinkHref, followersLinkHref, followingLinkHref }) {
-    
+export default function Header({ followersLinkHref, followingLinkHref }) {
+    const { username } = useUser();
+    const storedUsername = localStorage.getItem('username') || username;
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
 
@@ -24,7 +26,7 @@ export default function Header({ homepageLinkHref, followersLinkHref, followingL
                     <li>
                         <LinkItem 
                             name="Inicio" 
-                            to={`/home/${homepageLinkHref}`} 
+                            to={`/home/${storedUsername}`} 
                             variant="headerLink"
                         />
                     </li>
