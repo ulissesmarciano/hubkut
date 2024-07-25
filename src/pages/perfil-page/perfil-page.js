@@ -9,9 +9,6 @@ import useFetchUserData from '../../hooks/useFetchUserData';
 import useFetchFollowersData from '../../hooks/useFetchFollowersData';
 import useFetchFollowingData from '../../hooks/useFetchFollowingData';
 import useFetchReposData from '../../hooks/useFetchReposData';
-import useFetchStarredData from '../../hooks/useFetchStarredData';
-import GreetingScreen from '../../components/greetings-screen';
-import ToDoScreen from '../../components/to-do-screen';
 import ReposScreen from '../../components/repos-screen';
 import FollowSection from '../../components/follow-section';
 import FollowUser from '../../components/follow-user';
@@ -23,7 +20,6 @@ export default function PerfilPage () {
   const followingData = useFetchFollowingData(username);
   const followersData = useFetchFollowersData(username);
   const reposData = useFetchReposData(username);
-  const starredData = useFetchStarredData(username);
   
   return (
     <div>
