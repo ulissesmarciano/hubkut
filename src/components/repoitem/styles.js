@@ -6,6 +6,9 @@ export const Container = styled.li`
     display: flex;
     flex-direction: column;
 
+    word-wrap: break-word;
+    word-break: break-word;
+
     background-color: #d9e6f6;
 
     .repo-description {
@@ -26,4 +29,5 @@ export const RepoLink = styled(Link)`
     .repo-icon {
         height: 18px;
     }
+;
 `
