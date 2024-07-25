@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
+    .link-section {
+        margin: .4rem 0;
+
+        display: flex;
+        justify-content: end;
+    }
+
     .followers-section {
         margin: 1rem auto;
         padding: 1rem;
