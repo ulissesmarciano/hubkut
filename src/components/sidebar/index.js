@@ -2,9 +2,13 @@ import React from 'react';
 import { Container } from './styles';
 import HeaderSidebarButton from '../header-sidebar-button';
 import LinkItem from '../link';
+import { useUser } from '../../context/UserContext';
 
-export default function Sidebar({ active, homepageLinkHref, followingLinkHref, followersLinkHref }) {
+export default function Sidebar({ active, followingLinkHref, followersLinkHref }) {
+  const { username } = useUser();
+  const storedUsername = localStorage.getItem('username') || username;
   const closeSidebar = () => active(false);
+
   return (
     <Container $active={active}>
         <div className='close-sidebar-section'>
@@ -15,21 +19,21 @@ export default function Sidebar({ active, homepageLinkHref, followingLinkHref, f
               <li>
                 <LinkItem 
                   name="Início"
-                  to={`/home/${homepageLinkHref}`}
+                  to={`/home/${storedUsername}`}
                   variant="headerLink"
                 />
               </li>
               <li>
                 <LinkItem 
                   name="Seguidores"
-                  to={`/followers/${followersLinkHref}`}
+                  to={`/followers/${storedUsername}`}
                   variant="headerLink"
                 />
               </li>
               <li>
                 <LinkItem 
                   name="Seguindo"
-                  to={`/following/${followingLinkHref}`}
+                  to={`/following/${storedUsername}`}
                   variant="headerLink"
                 />
               </li>
