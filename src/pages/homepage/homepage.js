@@ -29,7 +29,7 @@ export default function HomePage() {
   const starredData = useFetchStarredData(username);
 
   return (
-    <div>
+    <>
       <Header 
         homepageLinkHref={username}
         followersLinkHref={username}
@@ -109,6 +109,6 @@ export default function HomePage() {
           </section>
         </aside>
       </Container>
-    </div>
+    </>
   );
 }
