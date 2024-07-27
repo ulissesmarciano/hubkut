@@ -16,9 +16,15 @@ export const Container = styled.li`
         font-size: .8rem;
         font-weight: 500;
     }
+
+    .language {
+        margin-top: .4rem;
+        font-size: .8rem;
+    }
 `
 
 export const RepoLink = styled(Link)`
+
     display: flex;
     align-items: center;
     gap: .4rem;
