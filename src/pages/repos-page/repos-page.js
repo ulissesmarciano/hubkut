@@ -30,6 +30,7 @@ export default function ReposPage() {
                 key={index}
                 repoName={repo.name}
                 repoUrl={repo.full_name}
+                language={repo.language}
               />
             )}
           </div>
