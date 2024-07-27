@@ -20,13 +20,18 @@ export default function HomePage() {
   const { username: urlUsername } = useParams();
   const { username: contextUsername } = useUser();
   const storedUsername = localStorage.getItem('username');
-  const username = urlUsername || contextUsername || storedUsername; // Priorizar o parâmetro da URL, depois o contexto, e finalmente o localStorage
+  const username = urlUsername || contextUsername || storedUsername;
 
   const userData = useFetchUserData(username);
   const followingData = useFetchFollowingData(username);
   const followersData = useFetchFollowersData(username);
   const reposData = useFetchReposData(username);
   const starredData = useFetchStarredData(username);
+
+  // Ordena os repositórios por data de atualização (pushed_at)
+  const sortedReposData = [...reposData].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+
+  console.log(sortedReposData);
 
   return (
     <>
@@ -65,7 +70,7 @@ export default function HomePage() {
           />
           <ToDoScreen username={username}/>
           <ReposScreen 
-            repoItem={reposData.map((repo, index) => 
+            repoItem={sortedReposData.map((repo, index) => 
               <RepoItem 
                 key={index}
                 repoName={repo.name}
