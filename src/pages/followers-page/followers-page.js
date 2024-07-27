@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from './styles';
 
-import useFetchStarredData from '../../hooks/useFetchStarredData'
+import useFetchFollowersData from '../../hooks/useFetchFollowersData';
 
 import Header from '../../components/header';
 import FollowUser from '../../components/follow-user';
@@ -11,7 +11,9 @@ import LinkItem from '../../components/link';
 export default function FollowersPage() {
   const data = useParams();
   const username = data.username;
-  const starredData = useFetchStarredData(username);
+  const followersData = useFetchFollowersData(username);
+
+  
       
   return (
     <Container>
@@ -19,6 +21,7 @@ export default function FollowersPage() {
         followersLinkHref={username}
         followingLinkHref={username}
         homepageLinkHref={username}
+
       />
       <section className='followers-section'> 
         <div className='link-section'>
@@ -29,7 +32,7 @@ export default function FollowersPage() {
           />
         </div>
         <ul className='list'>
-          {starredData.map((user, index) => 
+          {followersData.map((user, index) => 
             <FollowUser 
               key={index}
               usernameOut={user.login}
