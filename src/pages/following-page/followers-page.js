@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from './styles';
 
@@ -7,12 +7,23 @@ import useFetchFollowingData from '../../hooks/useFetchFollowingData'
 import Header from '../../components/header';
 import FollowUser from '../../components/follow-user';
 import LinkItem from '../../components/link';
+import Loader from '../../components/loader';
 
 export default function FollowingPage() {
+  const [loading, setLoading] = useState(true);
+
   const data = useParams();
   const username = data.username;
   const followingData = useFetchFollowingData(username);
-      
+  
+  useEffect(() => {
+    if (
+      followingData
+    ){
+      setLoading(false);
+    }
+  }, [followingData])
+  
   return (
     <Container>
       <Header 
@@ -20,6 +31,9 @@ export default function FollowingPage() {
         followingLinkHref={username}
         homepageLinkHref={username}
       />
+     {loading ? (
+      <Loader />
+     ):(
       <section className='followers-section'> 
         <div className='link-section'>
           <LinkItem 
@@ -39,7 +53,7 @@ export default function FollowingPage() {
           )}
         </ul>
       </section>
+     )}
     </Container>
-    
   );
 };
