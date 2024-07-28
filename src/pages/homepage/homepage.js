@@ -28,10 +28,7 @@ export default function HomePage() {
   const reposData = useFetchReposData(username);
   const starredData = useFetchStarredData(username);
 
-  // Ordena os repositórios por data de atualização (pushed_at)
   const sortedReposData = [...reposData].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
-
-  console.log(sortedReposData);
 
   return (
     <>
@@ -70,6 +67,7 @@ export default function HomePage() {
           />
           <ToDoScreen username={username}/>
           <ReposScreen 
+            repoPageLink={`/repos/${username}`}
             repoItem={sortedReposData.map((repo, index) => 
               <RepoItem 
                 key={index}
