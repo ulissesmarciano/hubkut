@@ -46,7 +46,7 @@ export default function ReposPage() {
                 repoName={repo.name}
                 repoUrl={repo.full_name}
                 language={repo.language}
-                
+                to={repo.html_url}
               />
             )}
           </div>
