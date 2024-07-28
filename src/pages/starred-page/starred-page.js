@@ -1,24 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Container } from './styles';
 
 import useFetchStarredData from '../../hooks/useFetchStarredData';
 
 import Header from '../../components/header';
-import { Container } from './styles';
 import LinkItem from '../../components/link';
 import RepoItem from '../../components/repoitem';
+import Loader from '../../components/loader';
 
 export default function ReposPage() {
+  const [loading, setLoading] = useState(true);
+  
   const userParams = useParams();
   const username = userParams.username;
   const starredData = useFetchStarredData(username);
 
-  console.log(starredData);
+  useEffect(() => {
+    if (
+      starredData
+    ){
+      setLoading(false);
+    }
+  }, [starredData])
 
   return (
     <>
       <Header />
-      <Container>
+      {loading ? (
+        <Loader />
+      ):(
+        <Container>
           <div className='link-section'>
             <LinkItem 
               name="Voltar"
@@ -37,6 +49,7 @@ export default function ReposPage() {
             )}
           </div>
       </Container>
+      )}
     </>
   )
 }

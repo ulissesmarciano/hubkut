@@ -21,7 +21,7 @@ export default function ReposPage() {
     ){
       setLoading(false);
     }
-  },[reposData])
+  }, [reposData])
 
   return (
     <>
