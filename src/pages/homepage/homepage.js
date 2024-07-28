@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from './styles';
 import Header from '../../components/header';
@@ -15,8 +15,12 @@ import FollowSection from '../../components/follow-section';
 import FollowUser from '../../components/follow-user';
 import RepoItem from '../../components/repoitem';
 import { useUser } from '../../context/UserContext';
+import Loader from '../../components/loader';
 
 export default function HomePage() {
+
+  const [loading, setLoading] = useState(true);
+
   const { username: urlUsername } = useParams();
   const { username: contextUsername } = useUser();
   const storedUsername = localStorage.getItem('username');
@@ -30,6 +34,18 @@ export default function HomePage() {
 
   const sortedReposData = [...reposData].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
 
+  useEffect(() => {
+    if (
+      userData &&
+      followingData &&
+      followersData &&
+      reposData &&
+      starredData
+    ) {
+      setLoading(false);
+    }
+  }, [userData, followingData, followersData, reposData, starredData]);
+
   return (
     <>
       <Header 
@@ -37,9 +53,12 @@ export default function HomePage() {
         followersLinkHref={username}
         followingLinkHref={username}
       />
-      <Container>
+      {loading ? (
+        <Loader />
+      ):(
+        <Container>
         <aside className='user-section'>
-          <UserScreen
+            <UserScreen
             src={userData.avatar_url}
             alt={`foto de ${userData.name}`}
             name={userData.name}
@@ -112,6 +131,7 @@ export default function HomePage() {
           </section>
         </aside>
       </Container>
+      )}
     </>
   );
 }
