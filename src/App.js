@@ -3,7 +3,7 @@ import { UserProvider } from './context/UserContext';
 
 import LoginPage from './pages/loginpage/loginpage';
 import HomePage from './pages/homepage/homepage';
-import FollowingPage from './pages/following-page/followers-page';
+import FollowingPage from './pages/following-page/following-page';
 import FollowersPage from './pages/followers-page/followers-page';
 import ReposPage from './pages/repos-page/repos-page';
 import StarredPage from './pages/starred-page/starred-page';
