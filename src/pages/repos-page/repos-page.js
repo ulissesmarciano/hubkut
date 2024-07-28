@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import useFetchReposData from '../../hooks/useFetchReposData';
 
@@ -9,9 +9,19 @@ import LinkItem from '../../components/link';
 import RepoItem from '../../components/repoitem';
 
 export default function ReposPage() {
+  const [loading, setLoading] = useState(true);
+
   const userParams = useParams();
   const username = userParams.username;
-  const repos = useFetchReposData(username);
+  const reposData = useFetchReposData(username);
+
+  useEffect(() => {
+    if (
+      reposData
+    ){
+      setLoading(false);
+    }
+  },[reposData])
 
   return (
     <>
@@ -20,12 +30,12 @@ export default function ReposPage() {
           <div className='link-section'>
             <LinkItem 
               name="Voltar"
-              to="/"
+              to={`/home/${username}`}
               variant="seAllLink"
             />
           </div>
           <div className='repos-section'>
-            {repos.map((repo, index) => 
+            {reposData.map((repo, index) => 
               <RepoItem 
                 key={index}
                 repoName={repo.name}
