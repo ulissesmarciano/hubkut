@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from './styles';
 
 import Header from '../../components/header';
+import Loader from '../../components/loader';
 import UserScreen from '../../components/user-screen';
 
 import useFetchUserData from '../../hooks/useFetchUserData';
@@ -15,19 +16,34 @@ import FollowUser from '../../components/follow-user';
 import RepoItem from '../../components/repoitem';
 
 export default function PerfilPage () {
+  const [loading, setLoading] = useState(true);
   const {username} = useParams();
   const userData = useFetchUserData(username);
   const followingData = useFetchFollowingData(username);
   const followersData = useFetchFollowersData(username);
   const reposData = useFetchReposData(username);
+
+  useEffect(() => {
+    if (
+      userData &&
+      followingData &&
+      followersData &&
+      reposData
+    ){
+      setLoading(false);
+    }
+  },[userData, followingData, followersData, reposData]);
   
   return (
-    <div>
+    <>
       <Header 
         followersLinkHref={username}
         followingLinkHref={username}
       />
-      <Container>
+      {loading ? (
+        <Loader />
+      ):(
+        <Container>
         <aside className='user-section'>
           <UserScreen
             src={userData.avatar_url}
@@ -88,7 +104,8 @@ export default function PerfilPage () {
           </section>
         </aside>
       </Container>
-    </div>
+      )}
+    </>
   );
 };
 
