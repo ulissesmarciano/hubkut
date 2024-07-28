@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Container } from './styles';
 
 import useFetchReposData from '../../hooks/useFetchReposData';
 
 import Header from '../../components/header';
-import { Container } from './styles';
 import LinkItem from '../../components/link';
 import RepoItem from '../../components/repoitem';
+import Loader from '../../components/loader';
 
 export default function ReposPage() {
   const [loading, setLoading] = useState(true);
@@ -14,6 +15,7 @@ export default function ReposPage() {
   const userParams = useParams();
   const username = userParams.username;
   const reposData = useFetchReposData(username);
+  console.log(reposData);
 
   useEffect(() => {
     if (
@@ -26,7 +28,10 @@ export default function ReposPage() {
   return (
     <>
       <Header />
-      <Container>
+      {loading ? (
+        <Loader />
+      ):(
+        <Container>
           <div className='link-section'>
             <LinkItem 
               name="Voltar"
@@ -41,10 +46,12 @@ export default function ReposPage() {
                 repoName={repo.name}
                 repoUrl={repo.full_name}
                 language={repo.language}
+                
               />
             )}
           </div>
-      </Container>
+        </Container>
+      )}
     </>
   )
 }
