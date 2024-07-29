@@ -6,7 +6,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/ulissesmarciano/hubkut?style=for-the-badge)
 ![GitHub open issues](https://img.shields.io/github/issues/ulissesmarciano/hubkut?style=for-the-badge)
 
-<img src="#" alt="Animação responsiva do projeto">
+<img src="/src/assets/readme/apresentacao.gif" alt="Animação responsiva do projeto">
 
 
 <br>
@@ -61,9 +61,9 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 - [x] Instalação da biblioteca
 - [x] Inizialização das rotas e criação das páginas
-- [ ] Criação e parametrização dos componentes nas páginas
-- [ ] Responsividade com Mobile First
-- [ ] Instalação do Axios e implementação da api
-- [ ] Renderização e criação das lógicas para os componentes
-- [ ] Realizar o deploy com um link para exposição no github.
-- [ ] Criação de rolagem automática com o objetivo de carregar todos os cards.
+- [x] Criação e parametrização dos componentes nas páginas
+- [x] Modulação da responsividade do projeto
+- [x] Instalação do Axios e implementação da api
+- [x] Renderização e criação das lógicas para os componentes
+- [x] Realizar o deploy com um link para exposição no github.
+- [x] Criar rota renderizada coma Api para todas as páginas.
