@@ -17,6 +17,7 @@ export const linkStyles = {
     background-color: #d9e6f6;
     color: #308bc5;
     font-size: .9rem;
+    text-transform: capitalize;
   `,
     
   seAllLink: css`
