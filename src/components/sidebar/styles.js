@@ -40,9 +40,7 @@ export const Container = styled.section`
             to { 
                 opacity: 1; 
             }
-            
         }
-
     }
 
     .menu-section{
