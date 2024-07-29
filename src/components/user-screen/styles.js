@@ -4,13 +4,11 @@ export const Container = styled.div`
     background-color: #fff;
     padding: 1rem;
     
-    
     display: flex;
     flex-direction: column;
     align-items: center;
 
     border-radius: .6rem;
-
 
     .user-profile-picture img {
 
