@@ -6,5 +6,4 @@ export const Container = styled.button`
     
     border: 1px solid #000;
     border-radius: 2px;
-    
 `
