@@ -3,7 +3,6 @@ import { Container } from './styles';
 import { useUser } from '../../context/UserContext';
 
 import HeaderSidebarButton from '../header-sidebar-button';
-
 import HubkutLogo from '../../assets/icons/hubkut-icon.png';
 import LinkItem from '../link';
 import Sidebar from '../sidebar';
