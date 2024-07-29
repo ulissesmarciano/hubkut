@@ -2,7 +2,6 @@ import { css } from 'styled-components';
 
 export const linkStyles = {
   todoLinkPrimary: css`
-    
     padding: .4rem;
     
     background-color: #6f92bb;
@@ -18,10 +17,9 @@ export const linkStyles = {
     background-color: #d9e6f6;
     color: #308bc5;
     font-size: .9rem;
-    `,
+  `,
     
   seAllLink: css`
-
     color: #308bc5;
     font-weight: 700;
 
@@ -31,7 +29,6 @@ export const linkStyles = {
   `,
 
   headerLink: css`
-
     color: #fff;
     text-transform: capitalize;
   `,
