@@ -49,6 +49,7 @@ export default function FollowingPage() {
               usernameOut={user.login}
               imageUrl={user.avatar_url}
               variant="primary"
+              to={user.login}
             />
           )}
         </ul>

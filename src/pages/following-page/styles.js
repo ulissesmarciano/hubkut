@@ -21,7 +21,6 @@ export const Container = styled.main`
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: .4rem;
-        
     }
 
     @media(max-width: 1440px){
