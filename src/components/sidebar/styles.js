@@ -51,7 +51,6 @@ export const Container = styled.section`
 
         display: flex;
         justify-content: center;
-                
     }
     
     .menu-section .list {
@@ -64,9 +63,7 @@ export const Container = styled.section`
 
     .menu-section .list li {
         font-size: 1.6rem;
-
     }
-
      
     @media (max-width: 480px) {
         .close-sidebar-section {
