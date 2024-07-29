@@ -124,6 +124,7 @@ export default function HomePage() {
                     imageUrl={user.avatar_url}
                     usernameIn={user.login}
                     variant="secondary"
+                    to={user.login}
                   />
                 ).slice(0, 6))}
                 to={`/followers/${username}`}
