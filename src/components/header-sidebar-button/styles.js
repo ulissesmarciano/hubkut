@@ -9,27 +9,24 @@ export const Container = styled.button`
     justify-content: center;
 
     cursor: pointer;
-    
 `;
 
 export const Icon = styled.div`
-    
     display: flex;
     align-items: center;
     justify-content: center;
-    
 `;
 
 export const TfiMenuIcon = styled(TfiMenu)`
-    fill: #fff; /* Cor branca */
+    fill: #fff;
     height: 2rem;
     width: 2rem;
 `;
 
 export const TfiCloseIcon = styled(TfiClose)`
-    fill: #fff; /* Cor branca */
+    fill: #fff;
     height: 2rem;
     width: 2rem;
-    stroke: #fff; /* Cor do contorno */
-    stroke-width: 1; /* Aumentar a espessura */
+    stroke: #fff;
+    stroke-width: 1;
 `;
