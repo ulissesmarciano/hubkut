@@ -34,7 +34,7 @@ export default function ReposPage() {
           <div className='link-section'>
             <LinkItem 
               name="Voltar"
-              to="/"
+              to={`/home/${username}`}
               variant="seAllLink"
             />
           </div>
@@ -45,6 +45,7 @@ export default function ReposPage() {
                 repoName={starred.name}
                 repoUrl={starred.full_name}
                 language={starred.language}
+                to={starred.html_url}
               />
             )}
           </div>
