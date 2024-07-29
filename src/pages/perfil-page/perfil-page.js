@@ -4,16 +4,16 @@ import { Container } from './styles';
 
 import Header from '../../components/header';
 import Loader from '../../components/loader';
+import RepoItem from '../../components/repoitem';
+import FollowUser from '../../components/follow-user';
 import UserScreen from '../../components/user-screen';
+import ReposScreen from '../../components/repos-screen';
+import FollowSection from '../../components/follow-section';
 
 import useFetchUserData from '../../hooks/useFetchUserData';
 import useFetchFollowersData from '../../hooks/useFetchFollowersData';
 import useFetchFollowingData from '../../hooks/useFetchFollowingData';
 import useFetchReposData from '../../hooks/useFetchReposData';
-import ReposScreen from '../../components/repos-screen';
-import FollowSection from '../../components/follow-section';
-import FollowUser from '../../components/follow-user';
-import RepoItem from '../../components/repoitem';
 
 export default function PerfilPage () {
   const [loading, setLoading] = useState(true);
@@ -59,7 +59,8 @@ export default function PerfilPage () {
           />
         </aside>
         <section className='info-section'>
-          <ReposScreen 
+          <ReposScreen
+            repoPageLink={`/repos/${userData.login}`}
             repoItem={reposData.map((repo, index) => 
               <RepoItem 
                 key={index}
