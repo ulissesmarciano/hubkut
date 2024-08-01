@@ -15,7 +15,6 @@ export default function ReposPage() {
   const userParams = useParams();
   const username = userParams.username;
   const reposData = useFetchReposData(username);
-  console.log(reposData);
 
   useEffect(() => {
     if (
