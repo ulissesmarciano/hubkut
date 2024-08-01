@@ -6,7 +6,7 @@
 ![GitHub forks](https://img.shields.io/github/forks/ulissesmarciano/hubkut?style=for-the-badge)
 ![GitHub open issues](https://img.shields.io/github/issues/ulissesmarciano/hubkut?style=for-the-badge)
 
-<img src="/src/assets/readme/apresentacao.gif" alt="Animação responsiva do projeto">
+<img src="./src/assets/readme/apresentacao.gif" alt="Animação responsiva do projeto">
 
 
 <br>
