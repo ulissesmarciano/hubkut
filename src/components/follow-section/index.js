@@ -11,5 +11,5 @@ export default function FollowSection({typeName, count, followUser, to}) {
       </ul>
       <LinkItem name="Ver mais" to={to} variant="seAllLink" />
     </Container>
-  )
-}
+  );
+};

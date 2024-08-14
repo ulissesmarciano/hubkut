@@ -57,5 +57,5 @@ export default function UserScreen({
         </ul>
         <span />
     </Container>
-  )
-}
+  );
+};

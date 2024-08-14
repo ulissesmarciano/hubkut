@@ -6,5 +6,5 @@ export default function LinkItem({variant, name, to, target}) {
     <Container to={to} variant={variant} target={target}>
         {name}
     </Container>
-  )
-}
+  );
+};

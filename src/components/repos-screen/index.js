@@ -1,6 +1,6 @@
-import React from 'react'
-import { Container } from './styles'
-import LinkItem from '../link'
+import React from 'react';
+import { Container } from './styles';
+import LinkItem from '../link';
 
 export default function ReposScreen({repoItem, repoPageLink}) {
   return (
@@ -13,5 +13,5 @@ export default function ReposScreen({repoItem, repoPageLink}) {
         <LinkItem name="Ver todos" to={repoPageLink} variant="seAllLink" />
       </div>
     </Container>
-  )
-}
+  );
+};

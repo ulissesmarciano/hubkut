@@ -15,4 +15,4 @@ export default function LoginInput({ onChange, onKeyPress, value, error, classNa
       {!error && <span className="custom-placeholder">Digite aqui</span>}
     </Container>
   );
-}
+};

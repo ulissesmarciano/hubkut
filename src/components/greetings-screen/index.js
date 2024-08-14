@@ -55,5 +55,5 @@ export default function GreetingScreen({
         </li>
       </ul>
     </Container>
-  )
-}
+  );
+};

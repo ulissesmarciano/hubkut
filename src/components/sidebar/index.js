@@ -47,5 +47,5 @@ export default function Sidebar({ active, followingLinkHref, followersLinkHref }
             </ul>
         </section>
     </Container>
-  )
-}
+  );
+};

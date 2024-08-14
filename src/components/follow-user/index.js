@@ -1,5 +1,5 @@
-import React from 'react'
-import { Container, UserSection } from './styles'
+import React from 'react';
+import { Container, UserSection } from './styles';
 
 export default function FollowUser({ imageUrl, usernameIn, usernameOut, variant, to }) {
   return (
@@ -9,5 +9,5 @@ export default function FollowUser({ imageUrl, usernameIn, usernameOut, variant,
       </UserSection>
       <p className='username-out'>{usernameOut}</p>
     </Container>
-  )
-}
+  );
+};

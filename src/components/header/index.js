@@ -62,5 +62,5 @@ export default function Header({ followersLinkHref, followingLinkHref }) {
                 {sidebar && <Sidebar active={setSidebar} />}
             </div>
         </Container>
-    )
-}
+    );
+};

@@ -13,5 +13,5 @@ export default function RepoItem({repoUrl, repoName, to, language}) {
         <p className='repo-description'>{repoName}</p>
         <p className='language'>{language}</p>
     </Container>
-  )
-}
+  );
+};

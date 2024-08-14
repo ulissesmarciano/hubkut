@@ -7,4 +7,4 @@ export default function HeaderSidebarButton({ onClick, variant }) {
       {variant === 'closeStyle' ? <TfiCloseIcon /> : <TfiMenuIcon />}
     </Container>
   );
-}
+};
