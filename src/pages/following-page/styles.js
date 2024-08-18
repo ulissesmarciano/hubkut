@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.main`
     .link-section {
         margin: .4rem 0;
+        padding: 1rem 0;
 
         display: flex;
         justify-content: space-between;
@@ -10,6 +11,7 @@ export const Container = styled.main`
 
     .link-section p {
         font-size: 1.2rem;
+        font-weight: 800;
     }
 
     .followers-section {
