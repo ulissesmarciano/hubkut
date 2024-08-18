@@ -5,7 +5,11 @@ export const Container = styled.main`
         margin: .4rem 0;
 
         display: flex;
-        justify-content: end;
+        justify-content: space-between;
+    }
+
+    .link-section p {
+        font-size: 1.2rem;
     }
 
     .followers-section {

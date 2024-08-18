@@ -37,6 +37,7 @@ export default function FollowersPage() {
      ):(
       <section className='followers-section'> 
         <div className='link-section'>
+          <p>Seguidores</p>
           <LinkItem 
             name="Voltar"
             to={`/home/${username}`}
