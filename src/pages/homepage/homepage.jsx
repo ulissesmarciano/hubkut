@@ -57,48 +57,47 @@ export default function HomePage() {
         <Loader />
       ):(
         <Container>
-        <aside className='user-section'>
-            <UserScreen
-            src={userData.avatar_url}
-            alt={`foto de ${userData.name}`}
-            name={userData.name}
-            employ={userData.company}
-            city={userData.location}
-            email={userData.email}
-            portfolio={userData.blog}
-            portfolioHref={userData.blog}
-            xUsername={userData.twitter_username}
-            xHref={userData.twitter_username}
-          />
-        </aside>
-        <section className='info-section'>
-          <GreetingScreen
-            name={userData.name}
-            bio={userData.bio}
-            repoCount={userData.public_repos}
-            starredCount={starredData.length}
-            followersCount={userData.followers}
-            followingCount={userData.following}
-            reposHref={username}
-            followersHref={username}
-            followingHref={username}
-            starredHref={username}
-          />
-          <ToDoScreen username={username}/>
-          <ReposScreen 
-            repoPageLink={`/repos/${username}`}
-            repoItem={sortedReposData.map((repo, index) => 
-              <RepoItem 
-                key={index}
-                repoName={repo.name}
-                repoUrl={repo.full_name}
-                to={repo.svn_url}
-              />
-            ).slice(0, 5)}
-          />
-        </section>
-        <aside className='follow-side'>
-          <section>
+          <aside className='user-section'>
+              <UserScreen
+              src={userData.avatar_url}
+              alt={`foto de ${userData.name}`}
+              name={userData.name}
+              employ={userData.company}
+              city={userData.location}
+              email={userData.email}
+              portfolio={userData.blog}
+              portfolioHref={userData.blog}
+              xUsername={userData.twitter_username}
+              xHref={userData.twitter_username}
+            />
+          </aside>
+          <section className='info-section'>
+            <GreetingScreen
+              name={userData.name}
+              bio={userData.bio}
+              repoCount={userData.public_repos}
+              starredCount={starredData.length}
+              followersCount={userData.followers}
+              followingCount={userData.following}
+              reposHref={username}
+              followersHref={username}
+              followingHref={username}
+              starredHref={username}
+            />
+            <ToDoScreen username={username}/>
+            <ReposScreen 
+              repoPageLink={`/repos/${username}`}
+              repoItem={sortedReposData.map((repo, index) => 
+                <RepoItem 
+                  key={index}
+                  repoName={repo.name}
+                  repoUrl={repo.full_name}
+                  to={repo.svn_url}
+                />
+              ).slice(0, 5)}
+            />
+          </section>
+          <aside className='follow-side'>
             <FollowSection
                 typeName="seguindo"
                 count={userData.following}
@@ -113,8 +112,6 @@ export default function HomePage() {
                   />
                 ).slice(0, 6))}
             />
-          </section>
-          <section>
             <FollowSection
                 typeName="seguidores"
                 count={userData.followers}
@@ -129,9 +126,8 @@ export default function HomePage() {
                 ).slice(0, 6))}
                 to={`/followers/${username}`}
             />
-          </section>
-        </aside>
-      </Container>
+          </aside>
+        </Container>
       )}
     </>
   );
