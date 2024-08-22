@@ -48,7 +48,7 @@ export default function UserScreen({
           </li>
           <li>
             <img src={LinkIcon} alt='ícone link'/>
-            <Link to={`https://${portfolioHref}`} target='_blank'><p>{portfolio}</p></Link>
+            <Link to={portfolioHref} target='_blank'><p>{portfolio}</p></Link>
           </li>
           <li>
             <img src={XIcon} alt='ícone twitter'/>
