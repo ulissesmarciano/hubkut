@@ -1,30 +1,26 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-    height: 100vh;
     padding: 1rem;
-  
 
     .login-container {
-        height: 100vh;
-
+        height: calc(100vh - 2rem);
+        
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-
+        
         background-color: #fff;
         border-radius: 2px;
     }
-
+    
+    
     .login-container .login-info-container .login-page-text {
         display: none;
-       
     }
-    
 
-
-    .login-container figure{
+    figure{
         display: flex;
         justify-content: center;
     }
@@ -32,46 +28,36 @@ export const Container = styled.main`
     .login-container .login-info-container figure img {
         width: 80%;
         margin-bottom: 3rem;
+    } 
 
-    }
-
-    .login-container .login-singnin-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        
-    }
-
-    .login-container .login-singnin-section form {
+    .login-container .login-section .login-form {
         width: 100%;
         gap: .6rem;
         position: relative;
-        
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+
     }
 
-    .login-container .login-singnin-section .login-section span {
+    .login-container .login-section .login-form span {
         display: none;
     }
 
-    .login-container .login-singnin-section .login-section .login-box {
-        display: flex;
-        align-items: center;
-
-        gap: .5rem;
-        
-    }
-
-    .login-container .login-singnin-section .login-section .user-form-section {
+    
+    .login-container .login-section .user-form-section {
         height: 100%;
         display: flex;
         gap: .5rem;
         align-items: center;
-
+        
         margin-bottom: 2rem;
+        
+    }
+    
+    .login-container .login-section .login-box {
+        display: flex;
+        align-items: center;
 
+        gap: .5rem;
+        
     }
 
     .error-message{
@@ -79,21 +65,20 @@ export const Container = styled.main`
         position: absolute;
         transform: translate(-50%, -50%);
         z-index: 1;
-        top: 63%;
+        top: 130%;
         left: 50%;
         
         font-size: .8rem;
         color: #ff0000;
-        font-weight: 500;
-        text-align: center;
-        
-    }
-
-    .login-container .login-singnin-section .singnin-section {
+        font-weight: 600;
         text-align: center;
     }
 
-    .login-container .login-singnin-section .singnin-section a {
+    .login-container .singnin-section {
+        text-align: center;
+    }
+
+    .login-container .singnin-section a {
             color: #2463e0;
             font-weight: bold;
             text-decoration: underline;
@@ -101,43 +86,50 @@ export const Container = styled.main`
     }
 
     @media (min-width: 769px){
+        height: calc(100vh - 4rem);
+    }
+
+    @media (min-width: 1024px){
         display: flex;
         align-items: center;
         justify-content: center;
 
         .login-container {
-            height: 800px;
-
-        }
-    }
-
-    @media (min-width: 1024px){
-        .login-container {
-            height: 100vh;
+            max-height:450px ;
             width: 100%;
-            gap: 1rem;
 
-            display: flex;
-            flex-direction: row;
+            padding: 0 4rem;
+
+            display: grid;
+            grid-template-areas: "login-info-container ."
+                                 "login-info-container login-section"
+                                 "login-info-container singnin-section"
+                                 "login-info-container ."
+                                 ;
+                                 
+            grid-template-columns: 1fr 345px;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            gap: 1rem;
+            
             background-color: transparent;
         }
 
         .login-container .login-info-container {
-            width: 70%;
-            height: 450px;
             background-color: #fff;
+            height: 100%;
 
+            
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: center;
+            
+            grid-area: login-info-container;
 
         }
 
         .login-container .login-info-container figure img {
             max-width: 30rem;
-            margin-bottom: 3rem;
-
         }
 
         .login-container .login-info-container .login-page-text {
@@ -156,30 +148,23 @@ export const Container = styled.main`
             }
         }
         
-        .login-container .login-singnin-section {
-            width: 380px;
-            height: 400px;
-            gap: 2rem;
-    
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .login-container .login-singnin-section .login-section {
+                
+       .login-container .login-section {
             padding: 1rem .6rem;
 
             text-align: center;
             font-size: .8rem;
 
             flex-direction: column;
+
+            grid-area: login-section;
             
             background-color: #e8eefa;
             border-radius: 2px;
 
         }
 
-        .login-container .login-singnin-section .login-section span {
+        .login-container .login-section .login-form span {
             display: block;
             margin-bottom: 1rem;
             
@@ -187,7 +172,7 @@ export const Container = styled.main`
         }
 
 
-        .login-container .login-singnin-section .login-section .login-box{
+        .login-container .login-section .login-box{
             gap: 1rem;
             
             display: flex;
@@ -195,17 +180,17 @@ export const Container = styled.main`
             align-items: flex-start;
         }
 
-        .login-container .login-singnin-section .login-section .user-form-section {
+        .login-container .login-section .user-form-section {
             align-items: flex-start;
             margin: 0;
         }
 
-        .login-container .login-singnin-section .login-section .user-form-section p {
+        .login-section .user-form-section p {
             font-size: 1rem;
             margin: .2rem;
         }
 
-        .login-container .login-singnin-section .singnin-section {
+        .login-container .singnin-section {
             padding: 1rem .6rem;
             width: 100%;
             gap: 1rem;
@@ -217,9 +202,9 @@ export const Container = styled.main`
             background-color: #e8eefa;
             border-radius: 2px;
 
-        }
+            grid-area: singnin-section;
 
-        
+        }
     }
     
 `
