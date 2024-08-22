@@ -8,13 +8,14 @@ export const GlobalStyle = createGlobalStyle`
         font-family: Roboto;
         list-style: none;
 
-        a {
-            text-decoration: none;
-            color: #000;
-        }
     }
-
+    
     body {
         background-color: #d9e6f6;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
     }
 `
