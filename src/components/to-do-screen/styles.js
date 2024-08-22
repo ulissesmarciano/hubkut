@@ -16,16 +16,8 @@ export const Container = styled.section`
     }
 
     @media (max-width: 543px){
-        .link-container {
-            overflow-x: scroll;
-            overflow-y: hidden;
-            white-space: nowrap;
-
-            &::-webkit-scrollbar {
-                display: none;
-            }
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .link-container :last-child {
+            display: none;
         }
     }
 `
