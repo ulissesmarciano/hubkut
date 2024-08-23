@@ -1,84 +1,53 @@
-import styled from "styled-components";
-
 export const Container = styled.main`
-    padding: 1rem 6rem;
-    gap: .4rem;
-    width: 100%;
-    
-    display: grid;
-    grid: "user-side info-section follow-side"
-          /236px 1fr 285px
-    ;
-    
-    .user-side {
-        flex: 1;
+    padding: 1rem;
 
-        grid-area: user-side;
-    }
-
+    .user-side , 
     .info-section {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        flex: 4;
-        gap: 1rem;
-
-        grid-area: info-section;
+        margin-bottom: 0.4rem;
     }
 
     .follow-side {
-        flex: 1;
-
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-
-        grid-area: follow-side;
+        gap: .4rem;
     }
 
-    .follow-side .follow-section {
+    @media(min-width: 480px){
+        padding: 1rem 2rem;
+    } 
+    
+    @media(min-width: 802px){
+        padding: 1rem 6rem;
+    } 
+
+    @media(min-width: 768px){
         display: grid;
-        grid-template-columns: 1fr 1fr1fr;
-    }
-
-    @media(max-width: 1024px){
-
+        gap: .4rem;
         grid: "user-side info-section"
               /236px 1fr
         ;
+
+        .user-side {
+            grid-area: user-side;
+        }
+
+        .info-section {
+            grid-area: info-section;
+        }
+
         .follow-side {
             display: none;
         }
     }
-
-    @media(max-width: 768px){
-        display: inline-block;
-        .user-side {
-            margin-bottom: .4rem;
-        }
-
-        .info-section {
-            margin-bottom: .4rem;
-        }
+    
+    @media(min-width: 1024px) {
+        
+        grid: "user-side info-section follow-side"
+              /236px 1fr 285px
+        ;
 
         .follow-side {
-            width: 100%;
-
             display: flex;
-            flex-direction: column;
-            gap: .4rem;
         }
     }
-
-    @media(max-width: 768px){
-
-        padding: 2rem;
-    }
-
-    
-
-    @media(max-width: 480px){
-        padding: 1rem;
-    }
 `
-
