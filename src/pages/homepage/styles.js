@@ -1,75 +1,61 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-    margin-top: 1rem;
-    display: grid;
-    gap: .4rem;
+    padding: 1.2rem 1rem;
 
-    padding: 0 6rem;
+    display: flex;
+    flex-direction: column;
 
-    grid: 
-          "user-section info-section follow-side"
-          / 235px 1fr 285px
-    ;
-    
-    .user-section {
-        grid-area: user-section;
+    .user-side {
+        margin-bottom: .4rem;
     }
 
     .info-section {
+        margin-bottom: .4rem;
+
         display: flex;
         flex-direction: column;
-        flex: 4;
-        gap: 1rem;
-
-        grid-area: info-section;
+        gap: .4rem;
     }
 
     .follow-side {
-        flex: 1;
-
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-
-        grid-area: follow-side;
+        gap: .4rem;
     }
 
-    .follow-side .follow-section {
+    @media (min-width: 481px) {
+        padding: 1.2rem 2rem;
+    }
+
+    @media(min-width: 768px) {
+        padding: 1.2rem 6rem;
+
         display: grid;
-        grid-template-columns: 1fr 1fr1fr;
-    }
+        gap: .4rem;
+        grid: "user-side info-section" / 235px 1fr;
 
-    @media(max-width: 1024px){
+        .user-side {
+            grid-area: user-side;
+        }
 
-        grid: 
-          "user-section info-section"
-          / 235px 1fr
-        ;
+        .info-section {
+            grid-area: info-section;
+        
+        }
 
         .follow-side {
             display: none;
         }
     }
 
+    @media(min-width: 1024px) {
+        grid: "user-side info-section follow-side"/ 235px 1fr 285px;
+        .follow-side {
+            display: flex;
+            flex-direction: column;
 
-
-    @media(max-width: 768px){
-
-        padding: 2rem;
-
-        grid: "info-section"/ 1fr;
-
-        .user-section {
-            display: none;
-        }
-    }
-
-    @media(max-width: 480px){
-        padding: 1rem;
-
-        .info-section {
-            width: 100%;
+            grid-area: follow-side;
         }
     }
 `
