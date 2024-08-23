@@ -13,11 +13,15 @@ export const Container = styled.section`
     .link-container {
         display: flex;
         gap: 1rem;
+        flex-wrap: wrap;
     }
 
     @media (max-width: 543px){
-        .link-container :last-child {
-            display: none;
+        .link-container {
+            flex-wrap: nowrap;
+            overflow-x: scroll;
+            overflow-y: hidden;
+
         }
     }
 `
