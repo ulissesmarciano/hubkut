@@ -44,7 +44,7 @@ export const Container = styled.header`
         display: none;
     }
 
-    @media (max-width:801px) {
+    @media ( max-width:801px) {
         padding: .2rem 2rem;
 
         .menu-section ul {
