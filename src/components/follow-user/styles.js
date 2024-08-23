@@ -7,31 +7,61 @@ export const Container = styled(Link)`
 `
 
 export const UserSection= styled.div`
-  width: 80px;
-  height: 100px;
+    width: 100px;
+    height: 140px;
 
-  background: 
-    linear-gradient(transparent, #00000060),
-    url(${(props) => props.$imageurl});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100px;
+    background: 
+      linear-gradient(transparent, #00000060),
+      url(${(props) => props.$imageurl});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 140px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: flex-end;
+    border-radius: 6px;
+
+    .username-in {
+      margin-bottom: .6rem;
+      word-wrap: break-word;
+      word-break: break-word;
+      max-width: 100%;
+
+      text-align: center;
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+    }
   
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-items: flex-end;
-  border-radius: 6px;
-
-  .username-in {
-    word-wrap: break-word;
-    word-break: break-word;
-    max-width: 100%;
-
-    text-align: center;
-    color: #fff;
-    font-size: .8rem;
-    font-weight: 600;
+  @media(min-width: 768px){
+    width: 80px;
+    height: 100px;
+  
+    background: 
+      linear-gradient(transparent, #00000060),
+      url(${(props) => props.$imageurl});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: flex-end;
+    border-radius: 6px;
+  
+    .username-in {
+      word-wrap: break-word;
+      word-break: break-word;
+      max-width: 100%;
+  
+      text-align: center;
+      color: #fff;
+      font-size: .8rem;
+      font-weight: 600;
+    }
   }
 `
 
