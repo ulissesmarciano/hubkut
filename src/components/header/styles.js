@@ -1,14 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-    padding: .4rem 6rem;
-    position: relative;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    
     background-color: #5c9Ed0;
+    
+    .header-section {
+        padding: .4rem 6rem;
+        position: relative;
+        
+        margin: 0 auto;
+        max-width: 120rem;
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
     .logo-section {
         padding: .6rem 1rem;
@@ -45,11 +50,15 @@ export const Container = styled.header`
     }
 
     @media ( max-width:801px) {
-        padding: .2rem 2rem;
+
+        .header-section{
+            padding: .2rem 2rem;
+        }
 
         .menu-section ul {
             display: none;
         }
+        
 
         .sidebar-section {
             display: block;
@@ -57,6 +66,8 @@ export const Container = styled.header`
     }
 
     @media (max-width:480px) {
-        padding: .2rem .6rem;
+        .header-section {
+            padding: .2rem .6rem;
+        }
     }
 `

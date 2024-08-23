@@ -43,6 +43,8 @@ export const Container = styled.main`
     }
     
     @media(min-width: 1024px) {
+        max-width: 120rem;
+        margin: 0 auto;
         
         grid: "user-side info-section follow-side"
               /236px 1fr 285px

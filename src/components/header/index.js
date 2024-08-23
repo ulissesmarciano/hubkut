@@ -15,51 +15,53 @@ export default function Header({ followersLinkHref, followingLinkHref }) {
 
     return (
         <Container>
-            <div className='logo-section'>
-                <picture >
-                    <img src={HubkutLogo} alt='Logotipo do Hubkut'/>
-                </picture>
-            </div>
-            <nav className='menu-section'>
-                <ul>
-                    <li>
-                        <LinkItem 
-                            name="Inicio" 
-                            to={`/home/${storedUsername}`} 
-                            variant="headerLink"
-                        />
-                    </li>
-                    <li>
-                        <LinkItem 
-                            name="Seguidores" 
-                            to={`/followers/${followersLinkHref}`} 
-                            variant="headerLink" 
-                        />
-                    </li>
-                    <li>
-                        <LinkItem 
-                            name="Seguindo" 
-                            to={`/following/${followingLinkHref}`} 
-                            variant="headerLink" 
-                        />
-                    </li>
-                </ul>
-                <ul>
-                    <li>
-                        <LinkItem 
-                            name="Sair" 
-                            to="/" 
-                            variant="headerLink" 
-                        />
-                    </li>
-                </ul>
-            </nav>
-            <div className='sidebar-section'>
-                <HeaderSidebarButton 
-                    variant="menu"
-                    onClick={showSidebar}
-                />
-                {sidebar && <Sidebar active={setSidebar} />}
+            <div className='header-section'>
+                <div className='logo-section'>
+                    <picture >
+                        <img src={HubkutLogo} alt='Logotipo do Hubkut'/>
+                    </picture>
+                </div>
+                <nav className='menu-section'>
+                    <ul>
+                        <li>
+                            <LinkItem 
+                                name="Inicio" 
+                                to={`/home/${storedUsername}`} 
+                                variant="headerLink"
+                            />
+                        </li>
+                        <li>
+                            <LinkItem 
+                                name="Seguidores" 
+                                to={`/followers/${followersLinkHref}`} 
+                                variant="headerLink" 
+                            />
+                        </li>
+                        <li>
+                            <LinkItem 
+                                name="Seguindo" 
+                                to={`/following/${followingLinkHref}`} 
+                                variant="headerLink" 
+                            />
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <LinkItem 
+                                name="Sair" 
+                                to="/" 
+                                variant="headerLink" 
+                            />
+                        </li>
+                    </ul>
+                </nav>
+                <div className='sidebar-section'>
+                    <HeaderSidebarButton 
+                        variant="menu"
+                        onClick={showSidebar}
+                    />
+                    {sidebar && <Sidebar active={setSidebar} />}
+                </div>
             </div>
         </Container>
     );
