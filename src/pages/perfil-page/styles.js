@@ -3,11 +3,17 @@ import styled from "styled-components";
 export const Container = styled.main`
     padding: 1rem 6rem;
     gap: .4rem;
-    display: flex;
     width: 100%;
     
-    .user-section {
+    display: grid;
+    grid: "user-side info-section follow-side"
+          /236px 1fr 285px
+    ;
+    
+    .user-side {
         flex: 1;
+
+        grid-area: user-side;
     }
 
     .info-section {
@@ -16,6 +22,8 @@ export const Container = styled.main`
         flex-direction: column;
         flex: 4;
         gap: 1rem;
+
+        grid-area: info-section;
     }
 
     .follow-side {
@@ -24,6 +32,8 @@ export const Container = styled.main`
         display: flex;
         flex-direction: column;
         gap: 1rem;
+
+        grid-area: follow-side;
     }
 
     .follow-side .follow-section {
@@ -32,21 +42,43 @@ export const Container = styled.main`
     }
 
     @media(max-width: 1024px){
+
+        grid: "user-side info-section"
+              /236px 1fr
+        ;
         .follow-side {
             display: none;
         }
     }
 
     @media(max-width: 768px){
+        display: inline-block;
+        .user-side {
+            margin-bottom: .4rem;
+        }
 
-        padding: 2rem;
+        .info-section {
+            margin-bottom: .4rem;
+        }
 
-        .user-section {
-            display: none;
+        .follow-side {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            gap: .4rem;
         }
     }
+
+    @media(max-width: 768px){
+
+        padding: 2rem;
+    }
+
+    
 
     @media(max-width: 480px){
         padding: 1rem;
     }
 `
+

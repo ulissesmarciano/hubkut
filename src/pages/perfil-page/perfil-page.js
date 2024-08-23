@@ -44,7 +44,7 @@ export default function PerfilPage () {
         <Loader />
       ):(
         <Container>
-        <aside className='user-section'>
+        <aside className='user-side'>
           <UserScreen
             src={userData.avatar_url}
             alt={`foto de ${userData.name}`}
