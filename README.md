@@ -16,7 +16,7 @@ Hubkut combina o design nostálgico do Orkut com funcionalidades da API do GitHu
 
 <br>
 
-<a href="/src/assets/readme/animacao.gif" target="_blank">🎁CLIQUE AQUI🎁</a> e acesse o deploy do projeto!
+<a href="https://hubkut-nine.vercel.app/" target="_blank">🎁CLIQUE AQUI🎁</a> e acesse o deploy do projeto!
 
 <br>
 
