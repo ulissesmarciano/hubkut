@@ -12,6 +12,8 @@ export const followUserStyles = {
       color: #3096d3;
       font-weight: 600;
       margin: .8rem;
+      word-wrap: break-word;
+      word-break: break-word;
     }
   `,
 
