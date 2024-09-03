@@ -26,12 +26,17 @@ export default function ReposPage() {
 
   return (
     <>
-      <Header />
+      <Header 
+        homepageLinkHref={username}
+        followersLinkHref={username}
+        followingLinkHref={username}
+      />
       {loading ? (
         <Loader />
       ):(
         <Container>
           <div className='link-section'>
+            <p>Repositórios</p>
             <LinkItem 
               name="Voltar"
               to={`/home/${username}`}
