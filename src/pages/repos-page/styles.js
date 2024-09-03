@@ -38,4 +38,10 @@ export const Container = styled.main`
             
         }
     }
+
+    @media (min-width: 1444px){
+        .repos-section {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
 `

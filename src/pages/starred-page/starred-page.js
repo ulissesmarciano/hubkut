@@ -32,6 +32,7 @@ export default function ReposPage() {
       ):(
         <Container>
           <div className='link-section'>
+            <p>Favoritos</p>
             <LinkItem 
               name="Voltar"
               to={`/home/${username}`}
