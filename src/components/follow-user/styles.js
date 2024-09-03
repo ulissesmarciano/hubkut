@@ -7,8 +7,8 @@ export const Container = styled(Link)`
 `
 
 export const UserSection= styled.div`
-    width: 100px;
-    height: 140px;
+    width: 70px;
+    height: 100px;
 
     background: 
       linear-gradient(transparent, #00000060),
