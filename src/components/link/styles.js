@@ -4,7 +4,4 @@ import { Link } from "react-router-dom";
 
 export const Container = styled(Link)`
     ${({variant}) => linkStyles[variant] || linkStyles.primary}
-
-    min-width: 116px;
-    text-align: center;
 `

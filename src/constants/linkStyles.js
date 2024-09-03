@@ -3,6 +3,8 @@ import { css } from 'styled-components';
 export const linkStyles = {
   todoLinkPrimary: css`
     padding: .4rem;
+    min-width: 116px;
+    text-align: center;
     
     background-color: #6f92bb;
     border-radius: 10px;
@@ -12,6 +14,8 @@ export const linkStyles = {
 
   todoLinkSecondary: css`
     padding: .4rem;
+    min-width: 116px;
+    text-align: center;
     
     border-radius: 10px;
     background-color: #d9e6f6;
