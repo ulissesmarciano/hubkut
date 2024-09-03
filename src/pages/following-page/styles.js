@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
     .link-section {
         margin: .4rem 0;
         padding: 1rem 0;
@@ -15,39 +20,29 @@ export const Container = styled.main`
     }
 
     .followers-section {
-        margin: 1rem auto;
+        margin: 1rem;
         padding: 1rem;
-        max-width: 1400px;
         
         background-color: #fff;
         border-radius: .6rem;
     }
-    
-    .followers-section .list{
+
+    .followers-section .list {
         display: grid;
-        grid-template-columns: 1fr 1fr;
         gap: .4rem;
     }
 
-    @media(max-width: 1440px){
-        .followers-section {
-            margin: 1rem 6rem;
-        }
+    @media(min-width: 481px){
+        padding: 1rem 1.2rem;
     }
 
-    @media(max-width: 768px){
-        .followers-section {
-            margin: 1rem 2rem;
-        }
+    @media (min-width: 800px){
+
+        padding: 1rem 4rem;
+        max-width: 120rem;
 
         .followers-section .list {
-            grid-template-columns: 1fr;
-        }
-
-        .followers-section .list li{
-            word-wrap: break-word;
-            word-break: break-word;
-            max-width: 100%;
+            grid-template-columns: 1fr 1fr;
         }
     }
 `
