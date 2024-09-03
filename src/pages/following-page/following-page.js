@@ -25,37 +25,39 @@ export default function FollowingPage() {
   }, [followingData])
   
   return (
-    <Container>
+    <>
       <Header 
         followersLinkHref={username}
         followingLinkHref={username}
         homepageLinkHref={username}
       />
-     {loading ? (
-      <Loader />
-     ):(
-      <section className='followers-section'> 
-        <div className='link-section'>
-        <p>Seguindo</p>
-          <LinkItem 
-            name="Voltar"
-            to={`/home/${username}`}
-            variant="seAllLink"
-          />
-        </div>
-        <ul className='list'>
-          {followingData.map((user, index) => 
-            <FollowUser 
-              key={index}
-              usernameOut={user.login}
-              imageUrl={user.avatar_url}
-              variant="primary"
-              to={user.login}
+      <Container>
+      {loading ? (
+        <Loader />
+      ):(
+        <section className='followers-section'> 
+          <div className='link-section'>
+          <p>Seguindo</p>
+            <LinkItem 
+              name="Voltar"
+              to={`/home/${username}`}
+              variant="seAllLink"
             />
-          )}
-        </ul>
-      </section>
-     )}
-    </Container>
+          </div>
+          <ul className='list'>
+            {followingData.map((user, index) => 
+              <FollowUser 
+                key={index}
+                usernameOut={user.login}
+                imageUrl={user.avatar_url}
+                variant="primary"
+                to={user.login}
+              />
+            )}
+          </ul>
+        </section>
+      )}
+      </Container>
+    </>
   );
 };
