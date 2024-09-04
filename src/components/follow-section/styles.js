@@ -31,5 +31,11 @@ export const Container = styled.section`
         gap: .4rem;
         background-color: #fff;
     }
+
+    @media(min-width: 1024px){
+        .section-name {
+            align-self: flex-start;
+        }
+    }
 `
 
