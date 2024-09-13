@@ -1,68 +1,72 @@
 import React, { useState } from 'react';
 import { Container } from './styles';
 import { useUser } from '../../context/UserContext';
-
-import HeaderSidebarButton from '../header-sidebar-button';
-import HubkutLogo from '../../assets/icons/hubkut-icon.png';
 import LinkItem from '../link';
-import Sidebar from '../sidebar';
 
-export default function Header({ followersLinkHref, followingLinkHref }) {
+import HubkutLogo from '../../assets/icons/hubkut-icon.png';
+
+const Header = ({ followersLinkHref, followingLinkHref }) => {
     const { username } = useUser();
     const storedUsername = localStorage.getItem('username') || username;
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => setSidebar(!sidebar);
-
+    const handleLinkClick = () => setSidebar(false);
     return (
         <Container>
-            <div className='header-section'>
-                <div className='logo-section'>
-                    <picture >
-                        <img src={HubkutLogo} alt='Logotipo do Hubkut'/>
-                    </picture>
+            <div className="header-container">
+                <div className='logo-container'>
+                    <img className='logo' src={HubkutLogo} alt="Logotipo do site" />
                 </div>
-                <nav className='menu-section'>
-                    <ul>
-                        <li>
-                            <LinkItem 
-                                name="Inicio" 
-                                to={`/home/${storedUsername}`} 
-                                variant="headerLink"
-                            />
-                        </li>
-                        <li>
-                            <LinkItem 
-                                name="Seguidores" 
-                                to={`/followers/${followersLinkHref}`} 
-                                variant="headerLink" 
-                            />
-                        </li>
-                        <li>
-                            <LinkItem 
-                                name="Seguindo" 
-                                to={`/following/${followingLinkHref}`} 
-                                variant="headerLink" 
-                            />
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <LinkItem 
-                                name="Sair" 
-                                to="/" 
-                                variant="headerLink" 
-                            />
-                        </li>
-                    </ul>
-                </nav>
-                <div className='sidebar-section'>
-                    <HeaderSidebarButton 
-                        variant="menu"
-                        onClick={showSidebar}
+                <nav>
+                    <input
+                    type="checkbox" id="menu-hamburguer"
+                    checked={sidebar}
+                    onChange={showSidebar}
                     />
-                    {sidebar && <Sidebar active={setSidebar} />}
-                </div>
+                    <label htmlFor="menu-hamburguer">
+                        <div className="menu">
+                            <span className="hamburguer"></span>
+                        </div>
+                    </label>
+
+                        <ul className={sidebar ? 'active' : ''}>
+                            <li>
+                                <LinkItem
+                                    name="Início"
+                                    variant="headerLink"
+                                    onClick={handleLinkClick}
+                                    to={`/home/${storedUsername}`} 
+                                />
+                            </li>
+                            <li>
+                                <LinkItem
+                                    name="Seguidores"
+                                    variant="headerLink"
+                                    onClick={handleLinkClick}
+                                    to={`/followers/${followersLinkHref}`}
+                                />
+                            </li>
+                            <li>
+                                <LinkItem
+                                    name="Seguindo"
+                                    variant="headerLink"
+                                    onClick={handleLinkClick}
+                                    to={`/following/${followingLinkHref}`} 
+                                />
+                            </li>
+                            <li>
+                                <LinkItem
+                                    name="Sair"
+                                    variant="headerLink"
+                                    onClick={handleLinkClick}
+                                    to="/" 
+                                />
+                            </li>
+                        </ul>
+                </nav>
             </div>
         </Container>
     );
 };
+
+export default Header;
