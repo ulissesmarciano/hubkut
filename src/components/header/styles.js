@@ -1,73 +1,143 @@
 import styled from "styled-components";
 
+
 export const Container = styled.header`
     background-color: #5c9Ed0;
-    
-    .header-section {
-        padding: .4rem 6rem;
-        position: relative;
-        
-        margin: 0 auto;
-        max-width: 120rem;
-        
-        display: flex;
+    position: relative;
+    z-index: 1000;
+
+    .header-container {
+        padding: .2rem .6rem;
+        display: flex; /* Torna a header-container flex */
         align-items: center;
-        justify-content: space-between;
     }
 
-    .logo-section {
+    .header-container .logo-container {
+        flex-shrink: 0; /* Impede o logo de encolher */
+    }
+
+    .header-container .logo-container .logo {
+        height: 2.2rem;
         padding: .6rem 1rem;
-
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-
         background-color: #fff;
-        border-radius: 50px;
+        border-radius: 2rem;
     }
 
-    .logo-section img{
-        height: 1rem;
-
+    .header-container nav {
+        flex-grow: 1; /* Faz o nav ocupar o espaço restante */
+        position: relative;
+        z-index: 100;
     }
 
-    .menu-section {
-        margin-left: 8rem;
+    .header-container nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100%;
         width: 100%;
-        display: flex;
-        justify-content: space-between;
+        background-color: #5c9Ed0;
+        transition: right 0.3s ease-in-out;
     }
 
-    .menu-section ul{
-
-        gap: 4rem;
-        
-        display: flex;
-    }
-
-    .sidebar-section {
+    input {
         display: none;
     }
 
-    @media ( max-width:801px) {
+    input:checked ~ ul {
+        right: 0;
+    }
 
-        .header-section{
+    .header-container .menu {
+        display: block;
+        width: 50px;
+        height: 50px;
+        align-self: end;
+        z-index: 100;
+        cursor: pointer;
+    }
+
+    .header-container nav label {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header-container nav .menu .hamburguer {
+        position: relative;
+        top: 25px;
+        left: 15px;
+        display: block;
+        width: 30px;
+        height: 4px;
+        background-color: #fff;
+        transition: 0.5s ease-in-out;
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            transition: 0.2s ease-in-out;
+        }
+
+        &::before {
+            top: -10px;
+        }
+
+        &::after {
+            top: 10px;
+        }
+    }
+
+    input:checked ~ label .menu .hamburguer {
+        transform: rotate(45deg);
+
+        &::before {
+            transform: rotate(90deg);
+            top: 0;
+        }
+
+        &::after {
+            transform: rotate(90deg);
+            top: 0;
+        }
+    }
+
+    @media (min-width: 480px) {
+        .header-container {
             padding: .2rem 2rem;
         }
+    }
 
-        .menu-section ul {
+    @media (min-width: 768px) {
+        .header-container {
+            padding: .4rem 6rem;
+        }
+
+        .header-container .menu {
             display: none;
         }
-        
 
-        .sidebar-section {
-            display: block;
+        .header-container nav ul {
+            padding-left: 8rem;
+            position: static;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start; /* Alinha os itens à esquerda */
+            gap: 4rem;
+            width: 100%;
+            background-color: transparent;
+        }
+
+        .header-container nav ul li:last-child {
+            margin-left: auto; /* Empurra o último item para o final */
         }
     }
-
-    @media (max-width:480px) {
-        .header-section {
-            padding: .2rem .6rem;
-        }
-    }
-`
+`;
