@@ -30,7 +30,6 @@ export default function FollowersPage() {
         followersLinkHref={username}
         followingLinkHref={username}
         homepageLinkHref={username}
-
       />
       <Container>
       {loading ? (
