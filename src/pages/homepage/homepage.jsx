@@ -48,17 +48,17 @@ export default function HomePage() {
 
   return (
     <>
-      <Header 
+      <Header
         homepageLinkHref={username}
         followersLinkHref={username}
         followingLinkHref={username}
       />
       {loading ? (
         <Loader />
-      ):(
+      ) : (
         <Container>
           <aside className='user-side'>
-              <UserScreen
+            <UserScreen
               src={userData.avatar_url}
               alt={`foto de ${userData.name}`}
               name={userData.name}
@@ -84,11 +84,12 @@ export default function HomePage() {
               followingHref={username}
               starredHref={username}
             />
-            <ToDoScreen username={username}/>
-            <ReposScreen 
+            <ToDoScreen username={username} />
+            <ReposScreen
+              repoScreenTitle={'Meus últimos repositórios:'}
               repoPageLink={`/repos/${username}`}
-              repoItem={sortedReposData.map((repo, index) => 
-                <RepoItem 
+              repoItem={sortedReposData.map((repo, index) =>
+                <RepoItem
                   key={index}
                   repoName={repo.name}
                   repoUrl={repo.full_name}
@@ -99,32 +100,32 @@ export default function HomePage() {
           </section>
           <aside className='follow-side'>
             <FollowSection
-                typeName="seguindo"
-                count={userData.following}
-                to={`/following/${username}`}
-                followUser={(followingData.map((user, index) =>
-                  <FollowUser
-                    key={index} 
-                    imageUrl={user.avatar_url}
-                    usernameIn={user.login}
-                    variant="secondary"
-                    to={user.login}
-                  />
-                ).slice(0, 6))}
+              typeName="seguindo"
+              count={userData.following}
+              to={`/following/${username}`}
+              followUser={(followingData.map((user, index) =>
+                <FollowUser
+                  key={index}
+                  imageUrl={user.avatar_url}
+                  usernameIn={user.login}
+                  variant="secondary"
+                  to={user.login}
+                />
+              ).slice(0, 6))}
             />
             <FollowSection
-                typeName="seguidores"
-                count={userData.followers}
-                followUser={(followersData.map((user, index) =>
-                  <FollowUser
-                    key={index} 
-                    imageUrl={user.avatar_url}
-                    usernameIn={user.login}
-                    variant="secondary"
-                    to={user.login}
-                  />
-                ).slice(0, 6))}
-                to={`/followers/${username}`}
+              typeName="seguidores"
+              count={userData.followers}
+              followUser={(followersData.map((user, index) =>
+                <FollowUser
+                  key={index}
+                  imageUrl={user.avatar_url}
+                  usernameIn={user.login}
+                  variant="secondary"
+                  to={user.login}
+                />
+              ).slice(0, 6))}
+              to={`/followers/${username}`}
             />
           </aside>
         </Container>
