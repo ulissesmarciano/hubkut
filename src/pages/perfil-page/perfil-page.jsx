@@ -23,6 +23,8 @@ export default function PerfilPage() {
   const followersData = useFetchFollowersData(username);
   const reposData = useFetchReposData(username);
 
+  const firstName = userData.name?.split(' ')[0];
+
   useEffect(() => {
     if (
       userData &&
@@ -60,6 +62,7 @@ export default function PerfilPage() {
           </aside>
           <section className='info-section'>
             <ReposScreen
+              repoScreenTitle={`Últimos repositórios de ${firstName}`}
               repoPageLink={`/repos/${userData.login}`}
               repoItem={reposData.map((repo, index) =>
                 <RepoItem
