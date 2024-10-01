@@ -2,10 +2,10 @@ import React from 'react';
 import { Container } from './styles';
 import LinkItem from '../link';
 
-export default function ReposScreen({repoItem, repoPageLink}) {
+export default function ReposScreen({repoScreenTitle, repoItem, repoPageLink}) {
   return (
     <Container>
-      <h4>Meus últimos repositórios:</h4>
+      <h4>{repoScreenTitle}</h4>
       <div>
         <ul className='repo-section'>
           {repoItem}
