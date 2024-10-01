@@ -60,12 +60,12 @@ export const Container = styled.main`
         
     }
 
-    .error-message{
+    .login-container .login-section .login-form .error-message{
         width: 100%;
         position: absolute;
         transform: translate(-50%, -50%);
         z-index: 1;
-        top: 130%;
+        bottom: -25px;
         left: 50%;
         
         font-size: .8rem;
