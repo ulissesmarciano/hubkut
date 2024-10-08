@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../../services/api'; 
+import api from '../../services/api';
 import Button from '../../components/button';
 import HubKutIcon from '../../assets/icons/hubkut-icon.png';
 import LoginInput from '../../components/input';
@@ -30,6 +30,7 @@ export default function LoginPage() {
     } else {
       try {
         const response = await api.get(`/${username}`);
+
         if (response.status === 200) {
           setError('');
           setUsername(username); // Atualizar o contexto
@@ -44,6 +45,8 @@ export default function LoginPage() {
       }
     }
   };
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -69,7 +72,7 @@ export default function LoginPage() {
             <div className='user-form-section'>
               <label htmlFor="username"><p>Usuário:</p></label>
               <div className='login-box'>
-                <LoginInput 
+                <LoginInput
                   id="username"
                   onChange={handleChange}
                   onKeyPress={handleKeyPress}
@@ -77,7 +80,7 @@ export default function LoginPage() {
                   error={error}
                   className="login-input"
                 />
-                <Button type="submit" variant="loginButton"/>
+                <Button type="submit" variant="loginButton" />
               </div>
             </div>
             {error && <p className='error-message'>{error}</p>}
