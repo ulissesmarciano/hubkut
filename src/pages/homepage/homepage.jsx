@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from './styles';
 import Header from '../../components/header';
+
+import useUserData from '../../hooks/useUserData';
+
 import UserScreen from '../../components/user-screen';
 import useFetchUserData from '../../hooks/useFetchUserData';
 import useFetchFollowersData from '../../hooks/useFetchFollowersData';
@@ -18,15 +21,18 @@ import { useUser } from '../../context/UserContext';
 import Loader from '../../components/loader';
 
 export default function HomePage() {
-
+  
+  
   const [loading, setLoading] = useState(true);
-
+  
   const { username: urlUsername } = useParams();
   const { username: contextUsername } = useUser();
   const storedUsername = localStorage.getItem('username');
   const username = urlUsername || contextUsername || storedUsername;
-
+  
   const userData = useFetchUserData(username);
+console.log(useUserData("ulissesmarciano"));
+console.log(userData);
   const followingData = useFetchFollowingData(username);
   const followersData = useFetchFollowersData(username);
   const reposData = useFetchReposData(username);
