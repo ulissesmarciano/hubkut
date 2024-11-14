@@ -7,6 +7,8 @@ import PinIcon from '../../assets/icons/pin-icon.png';
 import MailIcon from '../../assets/icons/mail-icon.png';
 import LinkIcon from '../../assets/icons/link-icon.png';
 import XIcon from '../../assets/icons/x_icon.svg';
+import InfoListItem from '../info-list-item';
+import { MdMarkEmailRead } from 'react-icons/md';
 
 
 export default function UserScreen({
@@ -34,26 +36,32 @@ export default function UserScreen({
         </div>
         <span />
         <ul className='info-list-section'>
-          <li>
-            <img src={EmployEmoji} alt='ícone empresa'/>
-            <p>{employ}</p>
-          </li>
-          <li>
-            <img src={PinIcon} alt='ícone localização'/>
-            <p>{city}</p>
-          </li>
-          <li>
-            <img src={MailIcon} alt='ícone email'/>
-            <p>{email}</p>
-          </li>
-          <li>
-            <img src={LinkIcon} alt='ícone link'/>
-            <Link to={portfolioHref} target='_blank'><p>{portfolio}</p></Link>
-          </li>
-          <li>
-            <img src={XIcon} alt='ícone twitter'/>
-            <Link to={`https://x.com/${xHref}`} target='_blank'><p>{xUsername}</p></Link>
-          </li>
+          <InfoListItem 
+            itemEmoji={EmployEmoji}
+            itemName={employ}
+          />
+          <InfoListItem 
+            itemEmoji={PinIcon}
+            itemName={city}
+          />
+          <InfoListItem 
+            itemEmoji={MailIcon}
+            itemName={email}
+          />
+          <InfoListItem 
+            itemEmoji={LinkIcon}
+            itemName={employ}
+          />
+          <InfoListItem 
+            itemEmoji={EmployEmoji}
+            itemName={portfolio}
+            to={portfolioHref}
+          />
+          <InfoListItem 
+            itemEmoji={XIcon}
+            itemName={xUsername}
+            to={`https://x.com/${xHref}`} 
+          />
         </ul>
         <span />
     </Container>
