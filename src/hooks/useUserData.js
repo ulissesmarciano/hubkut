@@ -9,8 +9,8 @@ import useFetchFollowingData from "./useFetchFollowingData";
 const useUserData = (username) => {
     const [user, setUser] = useState({
         name: '',
+        photo: '',
         username: '',
-        picture: '',
     })
 
     const userData = useFetchUserData(username);
@@ -18,12 +18,14 @@ const useUserData = (username) => {
     const starredData = useFetchStarredData(username);
     const followersData = useFetchFollowersData(username);
     const followingData = useFetchFollowingData(username);
+console.log(userData);
 
     useEffect(() => {
         if (userData) {
             setUser(prevState => ({
                 ...prevState,
-                
+               name: userData.name,
+               photo: userData.avatar_url
             }))
         }
     }, [userData])
