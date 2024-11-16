@@ -80,10 +80,10 @@ console.log(userData);
             <GreetingScreen
               name={userData.name}
               bio={userData.bio}
-              repoCount={userData.public_repos}
-              starredCount={starredData.length}
-              followersCount={userData.followers}
-              followingCount={userData.following}
+              repoCount={userData.numberOfRepos}
+              starredCount={userData.numberOfStarredRepos}
+              followersCount={userData.numberOfFollowers}
+              followingCount={userData.numberOfFollowing}
               reposHref={username}
               followersHref={username}
               followingHref={username}
