@@ -10,7 +10,12 @@ const useUserData = (username) => {
     const [user, setUser] = useState({
         name: '',
         photo: '',
-        username: '',
+        employ: '',
+        email: '',
+        portfolio: '',
+        city: '',
+        xUserName: '',
+        bio: '',
     })
 
     const userData = useFetchUserData(username);
@@ -24,14 +29,20 @@ console.log(userData);
         if (userData) {
             setUser(prevState => ({
                 ...prevState,
-               name: userData.name,
-               photo: userData.avatar_url
+                name: userData.name,
+                photo: userData.avatar_url,
+                employ: userData.company,
+                email: userData.email,
+                portfolio: userData.blog,
+                city: userData.location,
+                xUserName: userData.twitter_username,
+                bio: userData.bio,
             }))
         }
     }, [userData])
 
     return user
-    
+
 };
 
 export default useUserData;
