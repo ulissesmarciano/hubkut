@@ -30,8 +30,7 @@ export default function HomePage() {
   const storedUsername = localStorage.getItem('username');
   const username = urlUsername || contextUsername || storedUsername;
   
-  const userData = useFetchUserData(username);
-console.log(useUserData("ulissesmarciano"));
+  const userData = useUserData(username);
 console.log(userData);
   const followingData = useFetchFollowingData(username);
   const followersData = useFetchFollowersData(username);
@@ -65,16 +64,16 @@ console.log(userData);
         <Container>
           <aside className='user-side'>
             <UserScreen
-              src={userData.avatar_url}
+              src={userData.photo}
               alt={`foto de ${userData.name}`}
               name={userData.name}
-              employ={userData.company}
-              city={userData.location}
+              employ={userData.employ}
+              city={userData.city}
               email={userData.email}
-              portfolio={userData.blog}
-              portfolioHref={userData.blog}
-              xUsername={userData.twitter_username}
-              xHref={userData.twitter_username}
+              portfolio={userData.portfolio}
+              portfolioHref={userData.portfolio}
+              xUsername={userData.xUserName}
+              xHref={userData.xUserName}
             />
           </aside>
           <section className='info-section'>
