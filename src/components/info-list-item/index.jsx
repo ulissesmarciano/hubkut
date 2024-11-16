@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const InfoListItem = ({itemEmoji, itemName, to}) => {
+const InfoListItem = ({ itemEmoji, itemName, to }) => {
     return (
         <li>
             <img src={itemEmoji} alt='ícone empresa' />
-            <Link to={to}>
+            {to ? (
+                <Link to={to}>
+                    <p>{itemName}</p>
+                </Link>) : (
                 <p>{itemName}</p>
-            </Link>
+            )}
         </li>
     );
 };
