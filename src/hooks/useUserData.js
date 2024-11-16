@@ -16,6 +16,10 @@ const useUserData = (username) => {
         city: '',
         xUserName: '',
         bio: '',
+        numberOfRepos: '',
+        numberOfStarredRepos: '',
+        numberOfFollowing: '',
+        numberOfFollowers: '',
     })
 
     const userData = useFetchUserData(username);
@@ -37,9 +41,21 @@ console.log(userData);
                 city: userData.location,
                 xUserName: userData.twitter_username,
                 bio: userData.bio,
+                numberOfRepos: userData.public_repos,
+                numberOfFollowing: userData.following,
+                numberOfFollowers: userData.followers,
             }))
         }
     }, [userData])
+
+    useEffect(() => {
+        if(starredData) {
+            setUser(prevState => ({
+                ...prevState,
+                numberOfStarredRepos: starredData.length,
+            }))
+        }
+    }, [starredData])
 
     return user
 
