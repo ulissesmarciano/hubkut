@@ -10,31 +10,23 @@ import UserScreen from '../../components/user-screen';
 import ReposScreen from '../../components/repos-screen';
 import FollowSection from '../../components/follow-section';
 
-import useFetchUserData from '../../hooks/useFetchUserData';
-import useFetchFollowersData from '../../hooks/useFetchFollowersData';
-import useFetchFollowingData from '../../hooks/useFetchFollowingData';
-import useFetchReposData from '../../hooks/useFetchReposData';
+import useUserData from '../../hooks/useUserData';
 
 export default function PerfilPage() {
   const [loading, setLoading] = useState(true);
   const { username } = useParams();
-  const userData = useFetchUserData(username);
-  const followingData = useFetchFollowingData(username);
-  const followersData = useFetchFollowersData(username);
-  const reposData = useFetchReposData(username);
+  const userData = useUserData(username);
+
+  console.log(userData);
+  
 
   const firstName = userData.name?.split(' ')[0];
 
   useEffect(() => {
-    if (
-      userData &&
-      followingData &&
-      followersData &&
-      reposData
-    ) {
+    if (userData) {
       setLoading(false);
     }
-  }, [userData, followingData, followersData, reposData]);
+  }, [userData]);
 
   return (
     <>
@@ -48,23 +40,23 @@ export default function PerfilPage() {
         <Container>
           <aside className='user-side'>
             <UserScreen
-              src={userData.avatar_url}
+              src={userData.photo}
               alt={`foto de ${userData.name}`}
               name={userData.name}
-              employ={userData.company}
-              city={userData.location}
+              employ={userData.employ}
+              city={userData.city}
               email={userData.email}
-              portfolio={userData.blog}
-              portfolioHref={userData.blog}
+              portfolio={userData.portfolio}
+              portfolioHref={userData.portfolio}
               xUsername={userData.twitter_username}
-              xHref={userData.twitter_username}
+              xHref={userData.xUserName}
             />
           </aside>
           <section className='info-section'>
             <ReposScreen
               repoScreenTitle={`Últimos repositórios de ${firstName}`}
               repoPageLink={`/repos/${userData.login}`}
-              repoItem={reposData.map((repo, index) =>
+              repoItem={userData.lastRepos.map((repo, index) =>
                 <RepoItem
                   key={index}
                   repoName={repo.name}
@@ -80,7 +72,7 @@ export default function PerfilPage() {
                 typeName="seguindo"
                 count={userData.following}
                 to={`/following/${username}`}
-                followUser={(followingData.map((user, index) =>
+                followUser={(userData.followingUsers.map((user, index) =>
                   <FollowUser
                     key={index}
                     imageUrl={user.avatar_url}
@@ -95,7 +87,7 @@ export default function PerfilPage() {
               <FollowSection
                 typeName="seguidores"
                 count={userData.followers}
-                followUser={(followersData.map((user, index) =>
+                followUser={(userData.followersUsers.map((user, index) =>
                   <FollowUser
                     key={index}
                     imageUrl={user.avatar_url}
