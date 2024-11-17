@@ -67,3 +67,5 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Renderização e criação das lógicas para os componentes
 - [x] Realizar o deploy com um link para exposição no github.
 - [x] Criar rota renderizada coma Api para todas as páginas.
+- [x] Criar novo objeto para componetiar toda a renderização das páginas.
+- [ ] Criar novo loader para cada módulo.
