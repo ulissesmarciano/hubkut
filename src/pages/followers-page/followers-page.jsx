@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from './styles';
 
-import useFetchFollowersData from '../../hooks/useFetchFollowersData';
+import useUserData from '../../hooks/useUserData'
 
 import Header from '../../components/header';
 import FollowUser from '../../components/follow-user';
@@ -14,49 +14,51 @@ export default function FollowersPage() {
 
   const data = useParams();
   const username = data.username;
-  const followersData = useFetchFollowersData(username);
+  const followersData = useUserData(username).followersUsers;
+  console.log(followersData);
+
 
   useEffect(() => {
-    if(
+    if (
       followersData
-    ){
+    ) {
       setLoading(false);
     }
   }, [followersData])
-      
+
   return (
     <>
-      <Header 
+      <Header
         followersLinkHref={username}
         followingLinkHref={username}
         homepageLinkHref={username}
       />
       <Container>
-      {loading ? (
-        <Loader />
-      ):(
-        <section className='followers-section'> 
-          <div className='link-section'>
-            <p>Seguidores</p>
-            <LinkItem 
-              name="Voltar"
-              to={`/home/${username}`}
-              variant="seAllLink"
-            />
-          </div>
-          <ul className='list'>
-            {followersData.map((user, index) => 
-              <FollowUser 
-                key={index}
-                usernameOut={user.login}
-                imageUrl={user.avatar_url}
-                variant="primary"
-                to={user.login}
+        {loading ? (
+          <Loader />
+        ) : (
+          <section className='followers-section'>
+            <div className='link-section'>
+              <p>Seguidores</p>
+              <LinkItem
+                name="Voltar"
+                to={`/home/${username}`}
+                variant="seAllLink"
               />
-            )}
-          </ul>
-        </section>
-      )}
+            </div>
+            <ul className='list'>
+              {followersData.map((user, index) =>
+                <FollowUser
+                  key={index}
+                  usernameOut={user.login}
+                  imageUrl={user.avatar_url}
+                  variant="primary"
+                  to={user.login}
+                />
+              )}
+            </ul>
+          </section>
+        )}
       </Container>
     </>
   );
