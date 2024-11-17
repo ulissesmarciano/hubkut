@@ -20,14 +20,17 @@ const useUserData = (username) => {
         numberOfStarredRepos: '',
         numberOfFollowing: '',
         numberOfFollowers: '',
+        lastRepos: [],
     })
 
     const userData = useFetchUserData(username);
-    const reposData = useFetchReposData(username);
     const starredData = useFetchStarredData(username);
     const followersData = useFetchFollowersData(username);
     const followingData = useFetchFollowingData(username);
-console.log(userData);
+
+    const reposData = useFetchReposData(username);
+    const sortedReposData = [...reposData].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 5);
+    console.log(useFetchUserData("ulissesmarciano"));
 
     useEffect(() => {
         if (userData) {
@@ -44,18 +47,28 @@ console.log(userData);
                 numberOfRepos: userData.public_repos,
                 numberOfFollowing: userData.following,
                 numberOfFollowers: userData.followers,
+
             }))
         }
-    }, [userData])
+    }, [userData]);
 
     useEffect(() => {
-        if(starredData) {
+        if (starredData) {
             setUser(prevState => ({
                 ...prevState,
                 numberOfStarredRepos: starredData.length,
             }))
         }
-    }, [starredData])
+    }, [starredData]);
+
+    useEffect(() => {
+        if (reposData) {
+            setUser(prevState => ({
+                ...prevState,
+                lastRepos: sortedReposData,
+            }))
+        }
+    },[reposData])
 
     return user
 
