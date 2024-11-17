@@ -6,7 +6,6 @@ import Header from '../../components/header';
 import useUserData from '../../hooks/useUserData';
 
 import UserScreen from '../../components/user-screen';
-import useFetchUserData from '../../hooks/useFetchUserData';
 import useFetchFollowersData from '../../hooks/useFetchFollowersData';
 import useFetchFollowingData from '../../hooks/useFetchFollowingData';
 import useFetchReposData from '../../hooks/useFetchReposData';
@@ -36,8 +35,6 @@ console.log(userData);
   const followersData = useFetchFollowersData(username);
   const reposData = useFetchReposData(username);
   const starredData = useFetchStarredData(username);
-
-  const sortedReposData = [...reposData].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
 
   useEffect(() => {
     if (
@@ -93,14 +90,14 @@ console.log(userData);
             <ReposScreen
               repoScreenTitle={'Meus últimos repositórios:'}
               repoPageLink={`/repos/${username}`}
-              repoItem={sortedReposData.map((repo, index) =>
+              repoItem={userData.lastRepos.map((repo, index) =>
                 <RepoItem
                   key={index}
                   repoName={repo.name}
                   repoUrl={repo.full_name}
                   to={repo.svn_url}
                 />
-              ).slice(0, 5)}
+              )}
             />
           </section>
           <aside className='follow-side'>
