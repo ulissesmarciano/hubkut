@@ -15,8 +15,6 @@ export default function FollowersPage() {
   const data = useParams();
   const username = data.username;
   const followersData = useUserData(username).followersUsers;
-  console.log(followersData);
-
 
   useEffect(() => {
     if (
