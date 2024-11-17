@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from './styles';
 
-import useFetchStarredData from '../../hooks/useFetchStarredData';
+import useUserData from '../../hooks/useUserData';
 
 import Header from '../../components/header';
 import LinkItem from '../../components/link';
@@ -11,15 +11,16 @@ import Loader from '../../components/loader';
 
 export default function ReposPage() {
   const [loading, setLoading] = useState(true);
-  
+
   const userParams = useParams();
   const username = userParams.username;
-  const starredData = useFetchStarredData(username);
+  const starredData = useUserData(username).starredRepos;
+
 
   useEffect(() => {
     if (
       starredData
-    ){
+    ) {
       setLoading(false);
     }
   }, [starredData])
@@ -29,19 +30,19 @@ export default function ReposPage() {
       <Header />
       {loading ? (
         <Loader />
-      ):(
+      ) : (
         <Container>
           <div className='link-section'>
             <p>Favoritos</p>
-            <LinkItem 
+            <LinkItem
               name="Voltar"
               to={`/home/${username}`}
               variant="seAllLink"
             />
           </div>
           <div className='repos-section'>
-            {starredData.map((starred, index) => 
-              <RepoItem 
+            {starredData.map((starred, index) =>
+              <RepoItem
                 key={index}
                 repoName={starred.name}
                 repoUrl={starred.full_name}
@@ -50,7 +51,7 @@ export default function ReposPage() {
               />
             )}
           </div>
-      </Container>
+        </Container>
       )}
     </>
   );
