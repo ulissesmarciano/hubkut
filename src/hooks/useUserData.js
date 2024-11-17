@@ -23,6 +23,7 @@ const useUserData = (username) => {
         numberOfFollowers: '',
         followersUsers: [],
         lastRepos: [],
+        repos: [],
     })
 
     const userData = useFetchUserData(username);
@@ -65,6 +66,7 @@ const useUserData = (username) => {
                 followersUsers: followersData.slice(0, 6),
                 numberOfStarredRepos: starredData.length,
                 lastRepos: [...reposData].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 5),
+                repos: reposData,
             }))
         }
     }, [followingData, followersData, starredData, reposData])
