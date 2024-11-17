@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Container } from './styles';
 
-import useFetchReposData from '../../hooks/useFetchReposData';
+import useUserData from '../../hooks/useUserData';
 
 import Header from '../../components/header';
 import LinkItem from '../../components/link';
@@ -14,7 +14,7 @@ export default function ReposPage() {
 
   const userParams = useParams();
   const username = userParams.username;
-  const reposData = useFetchReposData(username);
+  const reposData = useUserData(username).repos;
 
   useEffect(() => {
     if (
