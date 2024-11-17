@@ -17,8 +17,6 @@ export default function PerfilPage() {
   const { username } = useParams();
   const userData = useUserData(username);
 
-  console.log(userData);
-  
 
   const firstName = userData.name?.split(' ')[0];
 
