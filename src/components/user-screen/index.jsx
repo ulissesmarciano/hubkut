@@ -50,11 +50,13 @@ export default function UserScreen({
           itemEmoji={LinkIcon}
           itemName={portfolio}
           to={portfolioHref}
+          target='_blank'
         />)}
         {xUsername && (<InfoListItem
           itemEmoji={XIcon}
           itemName={xUsername}
           to={`https://x.com/${xHref}`}
+          target='_blank'
         />)}
       </ul>
       <span />
