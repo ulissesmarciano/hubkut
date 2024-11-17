@@ -19,7 +19,9 @@ const useUserData = (username) => {
         numberOfRepos: '',
         numberOfStarredRepos: '',
         numberOfFollowing: '',
+        followingUsers: [],
         numberOfFollowers: '',
+        followersUsers: [],
         lastRepos: [],
     })
 
@@ -46,29 +48,28 @@ const useUserData = (username) => {
                 bio: userData.bio,
                 numberOfRepos: userData.public_repos,
                 numberOfFollowing: userData.following,
-                numberOfFollowers: userData.followers,
+                numberOfFollowers: userData.followers,            
 
             }))
         }
     }, [userData]);
 
     useEffect(() => {
-        if (starredData) {
+        if (
+            followingData && 
+            followersData && 
+            starredData &&
+            reposData
+        ) {
             setUser(prevState => ({
                 ...prevState,
+                followingUsers: followingData.slice(0, 6),
+                followersUsers: followersData,
                 numberOfStarredRepos: starredData.length,
-            }))
-        }
-    }, [starredData]);
-
-    useEffect(() => {
-        if (reposData) {
-            setUser(prevState => ({
-                ...prevState,
                 lastRepos: sortedReposData,
             }))
         }
-    },[reposData])
+    },[followingData, followersData, starredData, reposData])
 
     return user
 
