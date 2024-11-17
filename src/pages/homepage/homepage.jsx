@@ -6,10 +6,6 @@ import Header from '../../components/header';
 import useUserData from '../../hooks/useUserData';
 
 import UserScreen from '../../components/user-screen';
-import useFetchFollowersData from '../../hooks/useFetchFollowersData';
-import useFetchFollowingData from '../../hooks/useFetchFollowingData';
-import useFetchReposData from '../../hooks/useFetchReposData';
-import useFetchStarredData from '../../hooks/useFetchStarredData';
 import GreetingScreen from '../../components/greetings-screen';
 import ToDoScreen from '../../components/to-do-screen';
 import ReposScreen from '../../components/repos-screen';
@@ -20,33 +16,22 @@ import { useUser } from '../../context/UserContext';
 import Loader from '../../components/loader';
 
 export default function HomePage() {
-  
-  
+
+
   const [loading, setLoading] = useState(true);
-  
+
   const { username: urlUsername } = useParams();
   const { username: contextUsername } = useUser();
   const storedUsername = localStorage.getItem('username');
   const username = urlUsername || contextUsername || storedUsername;
-  
+
   const userData = useUserData(username);
-console.log(userData);
-  const followingData = useFetchFollowingData(username);
-  const followersData = useFetchFollowersData(username);
-  const reposData = useFetchReposData(username);
-  const starredData = useFetchStarredData(username);
 
   useEffect(() => {
-    if (
-      userData &&
-      followingData &&
-      followersData &&
-      reposData &&
-      starredData
-    ) {
+    if (userData) {
       setLoading(false);
     }
-  }, [userData, followingData, followersData, reposData, starredData]);
+  }, [userData]);
 
   return (
     <>
@@ -118,7 +103,7 @@ console.log(userData);
             <FollowSection
               typeName="seguidores"
               count={userData.numberOfFollowers}
-              followUser={(followersData.map((user, index) =>
+              followUser={(userData.followersUsers.map((user, index) =>
                 <FollowUser
                   key={index}
                   imageUrl={user.avatar_url}
