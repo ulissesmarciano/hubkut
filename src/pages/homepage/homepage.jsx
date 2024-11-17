@@ -103,9 +103,9 @@ console.log(userData);
           <aside className='follow-side'>
             <FollowSection
               typeName="seguindo"
-              count={userData.following}
+              count={userData.numberOfFollowing}
               to={`/following/${username}`}
-              followUser={(followingData.map((user, index) =>
+              followUser={(userData.followingUsers.map((user, index) =>
                 <FollowUser
                   key={index}
                   imageUrl={user.avatar_url}
@@ -113,11 +113,11 @@ console.log(userData);
                   variant="secondary"
                   to={user.login}
                 />
-              ).slice(0, 6))}
+              ))}
             />
             <FollowSection
               typeName="seguidores"
-              count={userData.followers}
+              count={userData.numberOfFollowers}
               followUser={(followersData.map((user, index) =>
                 <FollowUser
                   key={index}
