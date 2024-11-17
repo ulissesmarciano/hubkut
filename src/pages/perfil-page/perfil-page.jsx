@@ -63,14 +63,14 @@ export default function PerfilPage() {
                   repoUrl={repo.full_name}
                   to={repo.svn_url}
                 />
-              ).slice(0, 5)}
+              )}
             />
           </section>
           <aside className='follow-side'>
             <section>
               <FollowSection
                 typeName="seguindo"
-                count={userData.following}
+                count={userData.numberOfFollowing}
                 to={`/following/${username}`}
                 followUser={(userData.followingUsers.map((user, index) =>
                   <FollowUser
@@ -80,13 +80,13 @@ export default function PerfilPage() {
                     variant="secondary"
                     to={user.login}
                   />
-                ).slice(0, 6))}
+                ))}
               />
             </section>
             <section>
               <FollowSection
                 typeName="seguidores"
-                count={userData.followers}
+                count={userData.numberOfFollowers}
                 followUser={(userData.followersUsers.map((user, index) =>
                   <FollowUser
                     key={index}
@@ -95,7 +95,7 @@ export default function PerfilPage() {
                     variant="secondary"
                     to={user.login}
                   />
-                ).slice(0, 6))}
+                ))}
                 to={`/followers/${username}`}
               />
             </section>
