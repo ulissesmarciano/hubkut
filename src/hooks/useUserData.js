@@ -31,7 +31,6 @@ const useUserData = (username) => {
     const followingData = useFetchFollowingData(username);
 
     const reposData = useFetchReposData(username);
-    console.log(useFetchUserData("ulissesmarciano"));
 
     useEffect(() => {
         if (userData) {
@@ -47,7 +46,7 @@ const useUserData = (username) => {
                 bio: userData.bio,
                 numberOfRepos: userData.public_repos,
                 numberOfFollowing: userData.following,
-                numberOfFollowers: userData.followers,            
+                numberOfFollowers: userData.followers,
 
             }))
         }
@@ -55,8 +54,8 @@ const useUserData = (username) => {
 
     useEffect(() => {
         if (
-            followingData && 
-            followersData && 
+            followingData &&
+            followersData &&
             starredData &&
             reposData
         ) {
@@ -68,7 +67,7 @@ const useUserData = (username) => {
                 lastRepos: [...reposData].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 5),
             }))
         }
-    },[followingData, followersData, starredData, reposData])
+    }, [followingData, followersData, starredData, reposData])
 
     return user
 
