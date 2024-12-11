@@ -9,6 +9,7 @@ import useFetchFollowingData from "./useFetchFollowingData";
 const useUserData = (username) => {
     const [user, setUser] = useState({
         name: '',
+        userName: '',
         photo: '',
         employ: '',
         email: '',
@@ -25,20 +26,20 @@ const useUserData = (username) => {
         lastRepos: [],
         repos: [],
         starredRepos: [],
-    })
+    });
 
     const userData = useFetchUserData(username);
     const starredData = useFetchStarredData(username);
     const followersData = useFetchFollowersData(username);
     const followingData = useFetchFollowingData(username);
-
     const reposData = useFetchReposData(username);
-   
+
     useEffect(() => {
         if (userData) {
             setUser(prevState => ({
                 ...prevState,
                 name: userData.name,
+                userName: userData.login,
                 photo: userData.avatar_url,
                 employ: userData.company,
                 email: userData.email,
@@ -70,9 +71,9 @@ const useUserData = (username) => {
                 starredRepos: starredData,
             }))
         }
-    }, [followingData, followersData, starredData, reposData])
+    }, [followingData, followersData, starredData, reposData]);
 
-    return user
+    return user;
 
 };
 
