@@ -62,8 +62,8 @@ const useUserData = (username) => {
         ) {
             setUser(prevState => ({
                 ...prevState,
-                followingUsers: followingData.slice(0, 6),
-                followersUsers: followersData.slice(0, 6),
+                followingUsers: followingData,
+                followersUsers: followersData,
                 numberOfStarredRepos: starredData.length,
                 lastRepos: [...reposData].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 5),
                 repos: reposData,

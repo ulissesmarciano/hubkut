@@ -98,7 +98,7 @@ export default function HomePage() {
                   variant="secondary"
                   to={user.login}
                 />
-              ))}
+              )).slice(0, 6)}
             />
             <FollowSection
               typeName="seguidores"

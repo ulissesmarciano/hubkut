@@ -78,7 +78,7 @@ export default function PerfilPage() {
                     variant="secondary"
                     to={user.login}
                   />
-                ))}
+                )).slice(0, 6)}
               />
             </section>
             <section>
@@ -93,7 +93,7 @@ export default function PerfilPage() {
                     variant="secondary"
                     to={user.login}
                   />
-                ))}
+                )).slice(0, 6)}
                 to={`/followers/${username}`}
               />
             </section>
