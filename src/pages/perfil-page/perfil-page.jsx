@@ -16,8 +16,6 @@ export default function PerfilPage() {
   const [loading, setLoading] = useState(true);
   const { username } = useParams();
   const userData = useUserData(username);
-
-
   const firstName = userData.name?.split(' ')[0];
 
   useEffect(() => {
@@ -53,7 +51,7 @@ export default function PerfilPage() {
           <section className='info-section'>
             <ReposScreen
               repoScreenTitle={`Últimos repositórios de ${firstName}`}
-              repoPageLink={`/repos/${userData.login}`}
+              repoPageLink={`/repos/${userData.userName}`}
               repoItem={userData.lastRepos.map((repo, index) =>
                 <RepoItem
                   key={index}
