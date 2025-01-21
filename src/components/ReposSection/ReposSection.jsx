@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "./styles";
 import LinkItem from "../link";
 
-export default function ReposScreen({
+export default function ReposSection({
   repoScreenTitle,
   repoItem,
   repoPageLink,

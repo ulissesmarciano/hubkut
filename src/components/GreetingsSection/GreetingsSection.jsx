@@ -7,7 +7,7 @@ import FavoritesIcon from "../../assets/icons/starred-icon.png";
 import FollowersIcon from "../../assets/icons/user-icon.png";
 import FollowingIcon from "../../assets/icons/following-icon.png";
 
-export default function GreetingScreen({
+export default function GreetingsSection({
   name,
   bio,
   repoCount,

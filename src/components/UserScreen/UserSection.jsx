@@ -8,7 +8,7 @@ import LinkIcon from "../../assets/icons/link-icon.png";
 import XIcon from "../../assets/icons/x_icon.svg";
 import InfoListItem from "../info-list-item";
 
-export default function UserScreen({
+export default function UserSection({
   src,
   alt,
   name,

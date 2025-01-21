@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "./styles";
 import LinkItem from "../link";
 
-export default function ToDoScreen({ username }) {
+export default function ToDoSection({ username }) {
   return (
     <Container>
       <h4>O que você deseja fazer?</h4>
