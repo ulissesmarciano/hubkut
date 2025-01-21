@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+import { css } from "styled-components";
 
 export const followUserStyles = {
   primary: css`
@@ -6,12 +6,12 @@ export const followUserStyles = {
     width: 100%;
 
     background-color: #efefef;
-    border-radius: .6rem;
+    border-radius: 0.6rem;
 
     .username-out {
       color: #3096d3;
       font-weight: 600;
-      margin: .8rem;
+      margin: 0.8rem;
       word-wrap: break-word;
       word-break: break-word;
     }
