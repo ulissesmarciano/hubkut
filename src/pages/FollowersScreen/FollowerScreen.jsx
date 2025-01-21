@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Container } from './styles';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Container } from "./styles";
 
-import useUserData from '../../hooks/useUserData'
+import useUserData from "../../hooks/useUserData";
 
-import Header from '../../components/header';
-import FollowUser from '../../components/follow-user';
-import LinkItem from '../../components/link';
-import Loader from '../../components/loader';
+import Header from "../../components/header";
+import FollowUser from "../../components/follow-user";
+import LinkItem from "../../components/link";
+import Loader from "../../components/loader";
 
-export default function FollowersPage() {
+export default function FollowersScreen() {
   const [loading, setLoading] = useState(true);
 
   const data = useParams();
@@ -17,12 +17,10 @@ export default function FollowersPage() {
   const followersData = useUserData(username).followersUsers;
 
   useEffect(() => {
-    if (
-      followersData
-    ) {
+    if (followersData) {
       setLoading(false);
     }
-  }, [followersData])
+  }, [followersData]);
 
   return (
     <>
@@ -35,8 +33,8 @@ export default function FollowersPage() {
         {loading ? (
           <Loader />
         ) : (
-          <section className='followers-section'>
-            <div className='link-section'>
+          <section className="followers-section">
+            <div className="link-section">
               <p>Seguidores</p>
               <LinkItem
                 name="Voltar"
@@ -44,8 +42,8 @@ export default function FollowersPage() {
                 variant="seAllLink"
               />
             </div>
-            <ul className='list'>
-              {followersData.map((user, index) =>
+            <ul className="list">
+              {followersData.map((user, index) => (
                 <FollowUser
                   key={index}
                   usernameOut={user.login}
@@ -53,11 +51,11 @@ export default function FollowersPage() {
                   variant="primary"
                   to={user.login}
                 />
-              )}
+              ))}
             </ul>
           </section>
         )}
       </Container>
     </>
   );
-};
+}

@@ -15,7 +15,7 @@ import RepoItem from '../../components/repoitem';
 import { useUser } from '../../context/UserContext';
 import Loader from '../../components/loader';
 
-export default function HomePage() {
+export default function HomeScreen() {
 
 
   const [loading, setLoading] = useState(true);

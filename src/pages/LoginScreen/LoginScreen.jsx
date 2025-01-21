@@ -7,7 +7,7 @@ import LoginInput from '../../components/input';
 import { Container } from './styles';
 import { useUser } from '../../context/UserContext';
 
-export default function LoginPage() {
+export default function LoginScreen() {
   const { setUsername } = useUser();
   const [username, setUsernameLocal] = useState('');
   const [error, setError] = useState('');
