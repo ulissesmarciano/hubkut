@@ -5,76 +5,71 @@ import useFetchStarredData from "./useFetchStarredData";
 import useFetchFollowersData from "./useFetchFollowersData";
 import useFetchFollowingData from "./useFetchFollowingData";
 
-
 const useUserData = (username) => {
-    const [user, setUser] = useState({
-        name: '',
-        userName: '',
-        photo: '',
-        employ: '',
-        email: '',
-        portfolio: '',
-        city: '',
-        xUserName: '',
-        bio: '',
-        numberOfRepos: '',
-        numberOfStarredRepos: '',
-        numberOfFollowing: '',
-        followingUsers: [],
-        numberOfFollowers: '',
-        followersUsers: [],
-        lastRepos: [],
-        repos: [],
-        starredRepos: [],
-    });
+  const [user, setUser] = useState({
+    name: "",
+    userName: "",
+    photo: "",
+    employ: "",
+    email: "",
+    portfolio: "",
+    city: "",
+    xUserName: "",
+    bio: "",
+    numberOfRepos: "",
+    numberOfStarredRepos: "",
+    numberOfFollowing: "",
+    followingUsers: [],
+    numberOfFollowers: "",
+    followersUsers: [],
+    lastRepos: [],
+    repos: [],
+    starredRepos: [],
+  });
 
-    const userData = useFetchUserData(username);
-    const starredData = useFetchStarredData(username);
-    const followersData = useFetchFollowersData(username);
-    const followingData = useFetchFollowingData(username);
-    const reposData = useFetchReposData(username);
+  const userData = useFetchUserData(username);
+  const starredData = useFetchStarredData(username);
+  const followersData = useFetchFollowersData(username);
+  const followingData = useFetchFollowingData(username);
+  const reposData = useFetchReposData(username);
 
-    useEffect(() => {
-        if (userData) {
-            setUser(prevState => ({
-                ...prevState,
-                name: userData.name,
-                userName: userData.login,
-                photo: userData.avatar_url,
-                employ: userData.company,
-                email: userData.email,
-                portfolio: userData.blog,
-                city: userData.location,
-                xUserName: userData.twitter_username,
-                bio: userData.bio,
-                numberOfRepos: userData.public_repos,
-                numberOfFollowing: userData.following,
-                numberOfFollowers: userData.followers,
-            }))
-        }
-    }, [userData]);
+  useEffect(() => {
+    if (userData) {
+      setUser((prevState) => ({
+        ...prevState,
+        name: userData.name,
+        userName: userData.login,
+        photo: userData.avatar_url,
+        employ: userData.company,
+        email: userData.email,
+        portfolio: userData.blog,
+        city: userData.location,
+        xUserName: userData.twitter_username,
+        bio: userData.bio,
+        numberOfRepos: userData.public_repos,
+        numberOfFollowing: userData.following,
+        numberOfFollowers: userData.followers,
+      }));
+    }
+  }, [userData]);
 
-    useEffect(() => {
-        if (
-            followingData &&
-            followersData &&
-            starredData &&
-            reposData
-        ) {
-            setUser(prevState => ({
-                ...prevState,
-                followingUsers: followingData,
-                followersUsers: followersData,
-                numberOfStarredRepos: starredData.length,
-                lastRepos: [...reposData].sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0, 5),
-                repos: reposData,
-                starredRepos: starredData,
-            }))
-        }
-    }, [followingData, followersData, starredData, reposData]);
+  useEffect(() => {
+    if (followingData && followersData && starredData && reposData) {
+      setUser((prevState) => ({
+        ...prevState,
+        followingUsers: followingData,
+        followersUsers: followersData,
+        numberOfStarredRepos: starredData.length,
+        lastRepos: [...reposData]
+          .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
+          .slice(0, 5),
+        repos: reposData,
+        starredRepos: starredData,
+      }));
+    }
+  }, [followingData, followersData, starredData, reposData]);
 
-    return user;
-
+  return user;
 };
 
 export default useUserData;
