@@ -1,10 +1,10 @@
-import React from 'react';
-import { Container } from './styles';
+import React from "react";
+import { Container } from "./styles";
 
 export default function Loader() {
   return (
     <Container>
-        <div className='loader'></div>
+      <div className="loader"></div>
     </Container>
   );
-};
+}
