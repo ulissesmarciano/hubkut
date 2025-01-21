@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Container } from './styles';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Container } from "./styles";
 
-import useUserData from '../../hooks/useUserData';
+import useUserData from "../../hooks/useUserData";
 
-import Header from '../../components/header';
-import LinkItem from '../../components/link';
-import RepoItem from '../../components/repoitem';
-import Loader from '../../components/loader';
+import Header from "../../components/header";
+import LinkItem from "../../components/link";
+import RepoItem from "../../components/repoitem";
+import Loader from "../../components/loader";
 
 export default function ReposPage() {
   const [loading, setLoading] = useState(true);
@@ -17,45 +17,43 @@ export default function ReposPage() {
   const reposData = useUserData(username).repos;
 
   useEffect(() => {
-    if (
-      reposData
-    ){
+    if (reposData) {
       setLoading(false);
     }
-  }, [reposData])
+  }, [reposData]);
 
   return (
     <>
-      <Header 
+      <Header
         homepageLinkHref={username}
         followersLinkHref={username}
         followingLinkHref={username}
       />
       {loading ? (
         <Loader />
-      ):(
+      ) : (
         <Container>
-          <div className='link-section'>
+          <div className="link-section">
             <p>Repositórios</p>
-            <LinkItem 
+            <LinkItem
               name="Voltar"
               to={`/home/${username}`}
               variant="seAllLink"
             />
           </div>
-          <div className='repos-section'>
-            {reposData.map((repo, index) => 
-              <RepoItem 
+          <div className="repos-section">
+            {reposData.map((repo, index) => (
+              <RepoItem
                 key={index}
                 repoName={repo.name}
                 repoUrl={repo.full_name}
                 language={repo.language}
                 to={repo.html_url}
               />
-            )}
+            ))}
           </div>
         </Container>
       )}
     </>
   );
-};
+}

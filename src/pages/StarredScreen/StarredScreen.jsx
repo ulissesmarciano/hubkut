@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Container } from './styles';
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { Container } from "./styles";
 
-import useUserData from '../../hooks/useUserData';
+import useUserData from "../../hooks/useUserData";
 
-import Header from '../../components/header';
-import LinkItem from '../../components/link';
-import RepoItem from '../../components/repoitem';
-import Loader from '../../components/loader';
+import Header from "../../components/header";
+import LinkItem from "../../components/link";
+import RepoItem from "../../components/repoitem";
+import Loader from "../../components/loader";
 
 export default function ReposPage() {
   const [loading, setLoading] = useState(true);
@@ -16,14 +16,11 @@ export default function ReposPage() {
   const username = userParams.username;
   const starredData = useUserData(username).starredRepos;
 
-
   useEffect(() => {
-    if (
-      starredData
-    ) {
+    if (starredData) {
       setLoading(false);
     }
-  }, [starredData])
+  }, [starredData]);
 
   return (
     <>
@@ -32,7 +29,7 @@ export default function ReposPage() {
         <Loader />
       ) : (
         <Container>
-          <div className='link-section'>
+          <div className="link-section">
             <p>Favoritos</p>
             <LinkItem
               name="Voltar"
@@ -40,8 +37,8 @@ export default function ReposPage() {
               variant="seAllLink"
             />
           </div>
-          <div className='repos-section'>
-            {starredData.map((starred, index) =>
+          <div className="repos-section">
+            {starredData.map((starred, index) => (
               <RepoItem
                 key={index}
                 repoName={starred.name}
@@ -49,10 +46,10 @@ export default function ReposPage() {
                 language={starred.language}
                 to={starred.html_url}
               />
-            )}
+            ))}
           </div>
         </Container>
       )}
     </>
   );
-};
+}
