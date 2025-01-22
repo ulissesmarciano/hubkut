@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "./styles";
-import LinkItem from "../link";
+import LinkItem from "../LinkItem/LinkItem";
 
 export default function ReposSection({
   repoScreenTitle,

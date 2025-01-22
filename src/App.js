@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { UserProvider } from "./context/UserContext";
+import { UserProvider } from "./contexts/UserContext";
 
 import LoginScreen from "./pages/LoginScreen/LoginScreen"
 import HomeScreen from "./pages/HomeScreen/HomeScreen";

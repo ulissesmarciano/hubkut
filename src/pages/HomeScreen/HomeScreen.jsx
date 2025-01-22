@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Container } from "./styles";
-import Header from "../../components/header";
-
 import useUserData from "../../hooks/useUserData";
+import { useUser } from "../../contexts/UserContext";
 
-import UserScreen from "../../components/user-screen";
-import GreetingScreen from "../../components/greetings-screen";
-import ToDoScreen from "../../components/to-do-screen";
-import ReposScreen from "../../components/repos-screen";
-import FollowSection from "../../components/follow-section";
-import FollowUser from "../../components/follow-user";
-import RepoItem from "../../components/repoitem";
-import { useUser } from "../../context/UserContext";
-import Loader from "../../components/loader";
+import Header from "../../components/Header/Header";
+import UserSection from "../../components/UserSection/UserSection";
+import GreetingSection from "../../components/GreetingsSection/GreetingsSection";
+import ToDoSection from "../../components/ToDoSection/ToDoSection";
+import ReposSection from "../../components/ReposSection/ReposSection";
+import FollowSection from "../../components/FollowSection/FollowSection";
+import FollowUser from "../../components/FollowUser/FollowUser";
+import RepoItem from "../../components/RepoItem/RepoItem"
+import Loader from "../../components/Loader/Loader";
 
 export default function HomeScreen() {
   const [loading, setLoading] = useState(true);
@@ -43,7 +42,7 @@ export default function HomeScreen() {
       ) : (
         <Container>
           <aside className="user-side">
-            <UserScreen
+            <UserSection
               src={userData.photo}
               alt={`foto de ${userData.name}`}
               name={userData.name}
@@ -57,7 +56,7 @@ export default function HomeScreen() {
             />
           </aside>
           <section className="info-section">
-            <GreetingScreen
+            <GreetingSection
               name={userData.name}
               bio={userData.bio}
               repoCount={userData.numberOfRepos}
@@ -69,8 +68,8 @@ export default function HomeScreen() {
               followingHref={username}
               starredHref={username}
             />
-            <ToDoScreen username={username} />
-            <ReposScreen
+            <ToDoSection username={username} />
+            <ReposSection
               repoScreenTitle={"Meus últimos repositórios:"}
               repoPageLink={`/repos/${username}`}
               repoItem={userData.lastRepos.map((repo, index) => (

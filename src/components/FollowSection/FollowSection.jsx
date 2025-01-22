@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "./styles";
-import LinkItem from "../Link/Link";
+import LinkItem from "../LinkItem/LinkItem";
 
 export default function FollowSection({ typeName, count, followUser, to }) {
   return (

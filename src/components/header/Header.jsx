@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container } from "./styles";
-import { useUser } from "../../context/UserContext";
-import LinkItem from "../Link/Link";
+import { useUser } from "../../contexts/UserContext";
+import LinkItem from "../LinkItem/LinkItem";
 
 import HubkutLogo from "../../assets/icons/hubkut-icon.png";
 

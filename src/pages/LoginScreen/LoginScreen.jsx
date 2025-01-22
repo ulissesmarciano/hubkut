@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
-import Button from "../../components/button";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../../contexts/UserContext";
+import Button from "../../components/Button/Button";
 import HubKutIcon from "../../assets/icons/hubkut-icon.png";
-import LoginInput from "../../components/input";
+import LoginInput from "../../components/LoginInput/LoginInput";
 import { Container } from "./styles";
-import { useUser } from "../../context/UserContext";
 
 export default function LoginScreen() {
   const { setUsername } = useUser();
