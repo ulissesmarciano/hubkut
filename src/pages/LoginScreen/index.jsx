@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../../contexts/UserContext";
-import Button from "../../components/Button/Button";
+import Button from "../../components/Button";
 import HubKutIcon from "../../assets/icons/hubkut-icon.png";
-import LoginInput from "../../components/LoginInput/LoginInput";
+import LoginInput from "../../components/LoginInput";
 import { Container } from "./styles";
 
 export default function LoginScreen() {

@@ -7,7 +7,7 @@ import FavoritesIcon from "../../assets/icons/starred-icon.png";
 import FollowersIcon from "../../assets/icons/user-icon.png";
 import FollowingIcon from "../../assets/icons/following-icon.png";
 
-export default function GreetingsSection({
+const GreetingsSection = ({
   name,
   bio,
   repoCount,
@@ -18,7 +18,7 @@ export default function GreetingsSection({
   starredHref,
   followersHref,
   followingHref,
-}) {
+}) => {
   return (
     <Container>
       <h2 className="greeting-name">Bem vindo(a), {name}</h2>
@@ -56,3 +56,5 @@ export default function GreetingsSection({
     </Container>
   );
 }
+
+export default GreetingsSection;

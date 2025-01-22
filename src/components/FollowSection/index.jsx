@@ -1,8 +1,8 @@
 import React from "react";
-import { Container } from "./styles";
-import LinkItem from "../LinkItem/LinkItem";
+import { Container } from "./styles.js";
+import LinkItem from "../LinkItem/index.jsx";
 
-export default function FollowSection({ typeName, count, followUser, to }) {
+const FollowSection = ({ typeName, count, followUser, to }) => {
   return (
     <Container>
       <p className="section-name">
@@ -13,4 +13,6 @@ export default function FollowSection({ typeName, count, followUser, to }) {
       <LinkItem name="Ver mais" to={to} variant="seAllLink" />
     </Container>
   );
-}
+};
+
+export default FollowSection;

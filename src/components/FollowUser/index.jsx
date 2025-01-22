@@ -1,13 +1,7 @@
 import React from "react";
 import { Container, UserSection } from "./styles";
 
-export default function FollowUser({
-  imageUrl,
-  usernameIn,
-  usernameOut,
-  variant,
-  to,
-}) {
+const FollowUser = ({ imageUrl, usernameIn, usernameOut, variant, to }) => {
   return (
     <Container to={`/perfil/${to}`} $variant={variant}>
       <UserSection $imageurl={imageUrl}>
@@ -16,4 +10,6 @@ export default function FollowUser({
       <p className="username-out">{usernameOut}</p>
     </Container>
   );
-}
+};
+
+export default FollowUser;
