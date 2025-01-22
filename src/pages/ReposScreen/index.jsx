@@ -4,10 +4,10 @@ import { Container } from "./styles";
 
 import useUserData from "../../hooks/useUserData";
 
-import Header from "../../components/Header/Header";
-import LinkItem from "../../components/LinkItem/LinkItem";
-import RepoItem from "../../components/RepoItem/RepoItem";
-import Loader from "../../components/Loader/Loader";
+import Header from "../../components/Header";
+import LinkItem from "../../components/LinkItem";
+import RepoItem from "../../components/RepoItem";
+import Loader from "../../components/Loader";
 
 export default function ReposPage() {
   const [loading, setLoading] = useState(true);
