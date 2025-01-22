@@ -55,6 +55,6 @@ const GreetingsSection = ({
       </ul>
     </Container>
   );
-}
+};
 
 export default GreetingsSection;
