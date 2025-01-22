@@ -5,7 +5,7 @@ import LinkItem from "../LinkItem";
 
 import HubkutLogo from "../../assets/icons/hubkut-icon.png";
 
-const Header = ({ followersLinkHref, followingLinkHref }) => {
+export default function Header({ followersLinkHref, followingLinkHref }) {
   const { username } = useUser();
   const storedUsername = localStorage.getItem("username") || username;
   const [sidebar, setSidebar] = useState(false);
@@ -68,6 +68,4 @@ const Header = ({ followersLinkHref, followingLinkHref }) => {
       </div>
     </Container>
   );
-};
-
-export default Header;
+}
