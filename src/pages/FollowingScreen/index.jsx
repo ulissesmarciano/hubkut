@@ -4,7 +4,7 @@ import { Container } from "./styles";
 
 import useUserData from "../../hooks/useUserData";
 
-import Header from "../../components/Header";
+import Header from "../../components/Header"
 import FollowUser from "../../components/FollowUser";
 import LinkItem from "../../components/LinkItem";
 import Loader from "../../components/Loader"
