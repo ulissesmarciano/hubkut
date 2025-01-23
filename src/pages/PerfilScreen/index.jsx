@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Container } from "./styles";
 
-import Header from "../../components/Header";
-import Loader from "../../components/Loader";
-import RepoItem from "../../components/RepoItem";
-import FollowUser from "../../components/FollowUser";
-import UserScreen from "../../components/UserSection";
-import ReposScreen from "../../components/ReposSection";
-import FollowSection from "../../components/FollowSection";
+import Header from "../../components/Header/index.jsx";
+import Loader from "../../components/Loader/index.jsx";
+import RepoItem from "../../components/RepoItem/index.jsx";
+import FollowUser from "../../components/FollowUser/index.jsx";
+import UserScreen from "../../components/UserSection/index.jsx";
+import ReposScreen from "../../components/ReposSection/index.jsx";
+import FollowSection from "../../components/FollowSection/index.jsx";
 
 import useUserData from "../../hooks/useUserData";
 

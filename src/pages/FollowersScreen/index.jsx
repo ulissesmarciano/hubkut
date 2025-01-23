@@ -4,10 +4,10 @@ import { Container } from "./styles";
 
 import useUserData from "../../hooks/useUserData";
 
-import Header from "../../components/Header";
-import FollowUser from "../../components/FollowUser";
-import LinkItem from "../../components/LinkItem";
-import Loader from "../../components/Loader";
+import Header from "../../components/Header/index.jsx";
+import FollowUser from "../../components/FollowUser/index.jsx";
+import LinkItem from "../../components/LinkItem/index.jsx";
+import Loader from "../../components/Loader/index.jsx";
 
 export default function FollowersScreen() {
   const [loading, setLoading] = useState(true);

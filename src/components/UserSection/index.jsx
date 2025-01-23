@@ -6,7 +6,7 @@ import PinIcon from "../../assets/icons/pin-icon.png";
 import MailIcon from "../../assets/icons/mail-icon.png";
 import LinkIcon from "../../assets/icons/link-icon.png";
 import XIcon from "../../assets/icons/x_icon.svg";
-import InfoListItem from "../InfoListItem";
+import InfoListItem from "../InfoListItem/index.jsx";
 
 export default function UserSection({
   src,

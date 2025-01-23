@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./contexts/UserContext";
 
-import LoginScreen from "./pages/LoginScreen"
-import HomeScreen from "./pages/HomeScreen";
-import FollowingScreen from "./pages/FollowingScreen"
-import FollowersScreen from "./pages/FollowersScreen";
-import ReposScreen from "./pages/ReposScreen";
-import StarredScreen from "./pages/StarredScreen";
-import PerfilScreen from "./pages/PerfilScreen";
+import LoginScreen from "./pages/LoginScreen/index.jsx"
+import HomeScreen from "./pages/HomeScreen/index.jsx";
+import FollowingScreen from "./pages/FollowingScreen/index.jsx"
+import FollowersScreen from "./pages/FollowersScreen/index.jsx";
+import ReposScreen from "./pages/ReposScreen/index.jsx";
+import StarredScreen from "./pages/StarredScreen/index.jsx";
+import PerfilScreen from "./pages/PerfilScreen/index.jsx";
 
 function App() {
   return (

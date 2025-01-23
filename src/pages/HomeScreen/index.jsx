@@ -4,15 +4,15 @@ import { Container } from "./styles";
 import useUserData from "../../hooks/useUserData";
 import { useUser } from "../../contexts/UserContext";
 
-import Header from "../../components/Header";
-import UserSection from "../../components/UserSection";
-import GreetingSection from "../../components/GreetingsSection";
-import ToDoSection from "../../components/ToDoSection";
-import ReposSection from "../../components/ReposSection";
-import FollowSection from "../../components/FollowSection";
-import FollowUser from "../../components/FollowUser";
-import RepoItem from "../../components/RepoItem"
-import Loader from "../../components/Loader";
+import Header from "../../components/Header/index.jsx";
+import UserSection from "../../components/UserSection/index.jsx";
+import GreetingSection from "../../components/GreetingsSection/index.jsx";
+import ToDoSection from "../../components/ToDoSection/index.jsx";
+import ReposSection from "../../components/ReposSection/index.jsx";
+import FollowSection from "../../components/FollowSection/index.jsx";
+import FollowUser from "../../components/FollowUser/index.jsx";
+import RepoItem from "../../components/RepoItem/index.jsx"
+import Loader from "../../components/Loader/index.jsx";
 
 export default function HomeScreen() {
   const [loading, setLoading] = useState(true);
