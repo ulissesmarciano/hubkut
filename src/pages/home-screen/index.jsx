@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Container } from "./styles";
-import useUserData from "../../hooks/useUserData";
-import { useUser } from "../../contexts/UserContext";
+import { Container } from "./styles.js";
+import useUserData from "../../hooks/useUserData.js";
+import { useUser } from "../../contexts/UserContext.js";
 
-import Header from "../../components/Header/index.jsx";
-import UserSection from "../../components/UserSection/index.jsx";
-import GreetingSection from "../../components/GreetingsSection/index.jsx";
-import ToDoSection from "../../components/ToDoSection/index.jsx";
-import ReposSection from "../../components/ReposSection/index.jsx";
-import FollowSection from "../../components/FollowSection/index.jsx";
-import FollowUser from "../../components/FollowUser/index.jsx";
-import RepoItem from "../../components/RepoItem/index.jsx"
-import Loader from "../../components/Loader/index.jsx";
+import Header from "../../components/header";
+import UserSection from "../../components/user-section";
+import GreetingSection from "../../components/greeting-section";
+import ToDoSection from "../../components/todo-section";
+import ReposSection from "../../components/repos-section";
+import FollowSection from "../../components/follow-section";
+import FollowUser from "../../components/follow-user";
+import RepoItem from "../../components/repo-item"
+import Loader from "../../components/loader";
 
 export default function HomeScreen() {
   const [loading, setLoading] = useState(true);

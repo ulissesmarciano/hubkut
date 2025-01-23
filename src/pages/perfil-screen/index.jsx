@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Container } from "./styles";
+import { Container } from "./styles.js";
 
-import Header from "../../components/Header/index.jsx";
-import Loader from "../../components/Loader/index.jsx";
-import RepoItem from "../../components/RepoItem/index.jsx";
-import FollowUser from "../../components/FollowUser/index.jsx";
-import UserScreen from "../../components/UserSection/index.jsx";
-import ReposScreen from "../../components/ReposSection/index.jsx";
-import FollowSection from "../../components/FollowSection/index.jsx";
+import Header from "../../components/header";
+import Loader from "../../components/loader";
+import RepoItem from "../../components/repo-item";
+import FollowUser from "../../components/follow-user";
+import UserScreen from "../../components/user-section";
+import ReposScreen from "../../components/repos-section";
+import FollowSection from "../../components/follow-section";
 
-import useUserData from "../../hooks/useUserData";
+import useUserData from "../../hooks/useUserData.js";
 
 export default function PerfilPage() {
   const [loading, setLoading] = useState(true);

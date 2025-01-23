@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Container } from "./styles";
+import { Container } from "./styles.js";
 
-import useUserData from "../../hooks/useUserData";
+import useUserData from "../../hooks/useUserData.js";
 
-import Header from "../../components/Header/index.jsx";
-import FollowUser from "../../components/FollowUser/index.jsx";
-import LinkItem from "../../components/LinkItem/index.jsx";
-import Loader from "../../components/Loader/index.jsx";
+import Header from "../../components/header";
+import FollowUser from "../../components/follow-user";
+import LinkItem from "../../components/link-item";
+import Loader from "../../components/loader";
 
 export default function FollowingScreen() {
   const [loading, setLoading] = useState(true);

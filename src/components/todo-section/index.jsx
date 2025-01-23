@@ -1,6 +1,6 @@
 import React from "react";
-import { Container } from "./styles";
-import LinkItem from "../LinkItem/index.jsx";
+import { Container } from "./styles.js";
+import LinkItem from "../link-item";
 
 export default function ToDoSection({ username }) {
   return (

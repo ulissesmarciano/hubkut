@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Container } from "./styles";
+import { Container } from "./styles.js";
 
-import useUserData from "../../hooks/useUserData";
+import useUserData from "../../hooks/useUserData.js";
 
-import Header from "../../components/Header/index.jsx";
-import LinkItem from "../../components/LinkItem/index.jsx";
-import RepoItem from "../../components/RepoItem/index.jsx";
-import Loader from "../../components/Loader/index.jsx";
+import Header from "../../components/header";
+import LinkItem from "../../components/link-item";
+import RepoItem from "../../components/repo-item";
+import Loader from "../../components/loader";
 
 export default function ReposPage() {
   const [loading, setLoading] = useState(true);

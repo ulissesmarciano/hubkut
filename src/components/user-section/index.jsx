@@ -1,12 +1,13 @@
 import React from "react";
-import { Container } from "./styles";
+import { Container } from "./styles.js";
 
 import EmployEmoji from "../../assets/icons/company-icon.png";
 import PinIcon from "../../assets/icons/pin-icon.png";
 import MailIcon from "../../assets/icons/mail-icon.png";
 import LinkIcon from "../../assets/icons/link-icon.png";
 import XIcon from "../../assets/icons/x_icon.svg";
-import InfoListItem from "../InfoListItem/index.jsx";
+
+import InfoListItem from "../infolist-section";
 
 export default function UserSection({
   src,

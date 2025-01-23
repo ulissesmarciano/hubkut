@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "./styles.js";
-import LinkItem from "../LinkItem/index.jsx";
+import LinkItem from "../link-item";
 
 const FollowSection = ({ typeName, count, followUser, to }) => {
   return (

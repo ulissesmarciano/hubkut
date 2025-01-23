@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import api from "../../services/api";
-import { Container } from "./styles";
+import api from "../../services/api.js";
+import { Container } from "./styles.js";
 
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../../contexts/UserContext";
+import { useUser } from "../../contexts/UserContext.js";
 
-import Button from "../../components/Button/index.jsx";
-import LoginInput from "../../components/LoginInput/index.jsx";
+import Button from "../../components/button";
+import LoginInput from "../../components/login-input";
 
 import HubKutIcon from "../../assets/icons/hubkut-icon.png";
 
