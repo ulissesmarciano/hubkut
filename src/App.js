@@ -10,6 +10,8 @@ import StarredScreen from "./pages/starred-screen";
 import PerfilScreen from "./pages/perfil-screen";
 
 function App() {
+  console.log("Token do GitHub:", process.env.GITHUB_TOKEN?.slice(0, 5) + "...");
+
   return (
     <UserProvider>
       <Router>
