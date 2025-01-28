@@ -1,17 +1,15 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { UserProvider } from "./contexts/UserContext";
 
-import LoginScreen from "./pages/login-screen"
+import LoginScreen from "./pages/login-screen";
 import HomeScreen from "./pages/home-screen";
-import FollowingScreen from "./pages/following-section"
+import FollowingScreen from "./pages/following-section";
 import FollowersScreen from "./pages/followers-section";
 import ReposScreen from "./pages/repo-screen";
 import StarredScreen from "./pages/starred-screen";
 import PerfilScreen from "./pages/perfil-screen";
 
 function App() {
-  console.log("Token do GitHub:", process.env.REACT_APP_GITHUB_TOKEN?.slice(0, 5) + "...");
-
   return (
     <UserProvider>
       <Router>
